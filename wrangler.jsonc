@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers (Static Assets) — deploy do portfólio estático.
+  // Vite/React puro, sem rotas client-side; serve os arquivos de dist/ como estão.
+  "name": "macos-portfolio",
+  "compatibility_date": "2026-07-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "dist",
+    "not_found_handling": "single-page-application"
+  }
+}

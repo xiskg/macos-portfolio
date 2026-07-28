@@ -1,0 +1,246 @@
+/* ==========================================================================
+   SYSTEM — menu bar (fully transparent, Tahoe style) + Dock (Liquid Glass)
+   ========================================================================== */
+
+/* ------------------------------- Menu bar ------------------------------- */
+
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--menubar-h);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 10px;
+  color: var(--menubar-text);
+  text-shadow: var(--menubar-shadow);
+  font-size: 13px;
+}
+
+.menubar-left,
+.menubar-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.menubar-right {
+  margin-left: auto;
+  gap: 2px;
+}
+
+.mb-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 9px;
+  border-radius: 5px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.mb-item.bold {
+  font-weight: 700;
+}
+
+.mb-item svg {
+  display: block;
+}
+
+.mb-item:hover,
+.mb-item.open {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.mb-apple {
+  padding: 0 10px 0 6px;
+}
+
+.mb-apple svg {
+  width: 15px;
+  height: 15px;
+}
+
+.mb-clock {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dropdown menu */
+.mb-menu {
+  position: fixed;
+  top: calc(var(--menubar-h) + 3px);
+  min-width: 230px;
+  padding: 5px;
+  border-radius: 11px;
+  background: var(--menu-bg);
+  backdrop-filter: blur(45px) saturate(1.8);
+  -webkit-backdrop-filter: blur(45px) saturate(1.8);
+  border: 0.5px solid var(--menu-border);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.36);
+  color: var(--text);
+  text-shadow: none;
+  z-index: 2001;
+  animation: ctx-in 0.12s ease-out;
+}
+
+.mb-menu .mi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4.5px 11px;
+  border-radius: 6px;
+  white-space: nowrap;
+  gap: 24px;
+}
+
+.mb-menu .mi:hover:not(.disabled) {
+  background: var(--accent);
+  color: #fff;
+}
+
+.mb-menu .mi.disabled {
+  color: var(--text-3);
+}
+
+.mb-menu .mi .shortcut {
+  color: var(--text-3);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.mb-menu .mi:hover:not(.disabled) .shortcut {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mb-menu .sep {
+  height: 0.5px;
+  margin: 5px 13px;
+  background: var(--separator);
+}
+
+.mb-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.mb-status:hover,
+.mb-status.open {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.mb-battery-label {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------- Dock --------------------------------- */
+
+.dock-wrap {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dock {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  padding: 7px 8px 8px;
+  border-radius: 26px;
+  background: var(--dock-bg);
+  backdrop-filter: blur(32px) saturate(1.9);
+  -webkit-backdrop-filter: blur(32px) saturate(1.9);
+  border: 0.5px solid var(--dock-border);
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -0.5px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dock-item {
+  position: relative;
+  height: 52px;
+  flex: none;
+}
+
+.dock-icon-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.18));
+}
+
+.dock-icon-btn svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.dock-item.bouncing .dock-icon-btn {
+  animation: dock-bounce 0.72s cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@keyframes dock-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  28% { transform: translateX(-50%) translateY(-26px); }
+  52% { transform: translateX(-50%) translateY(0); }
+  72% { transform: translateX(-50%) translateY(-12px); }
+  88% { transform: translateX(-50%) translateY(0); }
+}
+
+.dock-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(20, 20, 24, 0.6);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+[data-theme='dark'] .dock-dot {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.dock-tip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  border-radius: 9px;
+  background: rgba(32, 32, 36, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  color: #f5f5f7;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s;
+}
+
+.dock-item:hover .dock-tip {
+  opacity: 1;
+}
+
+.dock-sep {
+  width: 1px;
+  align-self: stretch;
+  margin: 5px 7px;
+  background: rgba(128, 128, 134, 0.45);
+}
