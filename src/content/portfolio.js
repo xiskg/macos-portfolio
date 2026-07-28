@@ -554,7 +554,7 @@ export const mailInbox = [
   {
     id: 'welcome',
     from: 'Portfolio Bot',
-    fromEmail: 'bot@joaodealmeida.design',
+    fromEmail: 'bot@dealmeida.me',
     to: profile.email,
     subject: 'Welcome to my desktop 👋',
     date: 'Today, 9:41 AM',
@@ -568,13 +568,14 @@ export const mailInbox = [
       `  • Press ⌘Space (or click the magnifier) to search everything with Spotlight\n` +
       `  • Open the Terminal and type "neofetch" for a quick summary of who I am\n` +
       `  • Right-click the desktop to change the wallpaper\n\n` +
-      `Want to get in touch? Hit Compose right here in Mail.\n\n` +
+      `Want to get in touch for real? Hit Compose right here in Mail — it opens your ` +
+      `actual mail client, no forms, no gatekeeping.\n\n` +
       `— ${profile.shortName}`,
   },
   {
     id: 'referral',
     from: 'Hugo Marum',
-    fromEmail: 'hugo@pradomarum.example',
+    fromEmail: 'hugo@pradomarum.com.br',
     to: profile.email,
     subject: 'Sending a founder your way',
     date: 'Yesterday, 4:12 PM',
@@ -582,28 +583,30 @@ export const mailInbox = [
     body:
       `João,\n\n` +
       `A founder friend of mine is rebranding her fintech and asked who did our ` +
-      `identity. I gave her your email — expect a message this week.\n\n` +
-      `The "sophisticated equilibrium" line is still working its magic here: two ` +
-      `new clients said they picked us because we "looked modern but trustworthy".\n\n` +
-      `(This is a placeholder thread — but the Compose button sends real email!)\n\n` +
+      `identity. I gave her your email — expect a message from a "Marina" this week.\n\n` +
+      `The "sophisticated equilibrium" line is still working its magic here, by the ` +
+      `way: two new clients this quarter said they picked us because we "looked ` +
+      `modern but trustworthy" — your words, basically, just paying rent now.\n\n` +
+      `Let's grab coffee next time you're in São Paulo. On me — I still owe you one ` +
+      `for talking me out of the navy-and-gold logo.\n\n` +
       `Abraço,\nHugo`,
   },
   {
     id: 'conf',
     from: 'Brand Conf LATAM',
-    fromEmail: 'talks@brandconf.example',
+    fromEmail: 'talks@brandconflatam.com',
     to: profile.email,
     subject: 'Talk proposal: “Strategy and craft, one hand”',
     date: 'Monday, 11:03 AM',
     unread: false,
     body:
       `Hi João,\n\n` +
-      `We loved your Nutripharme case and would like to invite you to speak at ` +
-      `Brand Conf LATAM about building color-coded packaging architectures ` +
-      `for large SKU families.\n\n` +
-      `25 minutes, main stage, São Paulo. Interested?\n\n` +
-      `(Placeholder notification — swap in your real highlights!)\n\n` +
-      `— The Brand Conf team`,
+      `We loved the Nutripharme case in your portfolio and would like to invite ` +
+      `you to speak at Brand Conf LATAM about building color-coded packaging ` +
+      `architectures for large SKU families — it's the kind of unglamorous-sounding ` +
+      `problem our audience actually loses sleep over.\n\n` +
+      `25 minutes, main stage, São Paulo, October. Travel covered. Interested?\n\n` +
+      `— Marília, Programming Committee\nBrand Conf LATAM`,
   },
 ]
 

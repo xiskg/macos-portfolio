@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { profile, projects, devProjects } from '../content/portfolio.js'
 import Icon from '../components/Icon.jsx'
 
-const HOST = 'joaodealmeida.design'
+const HOST = 'dealmeida.me'
 
 function routeFor(url) {
   if (!url || url === 'start') return { type: 'start' }
