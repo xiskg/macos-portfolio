@@ -7,6 +7,10 @@ export default function BootScreen({ onDone }) {
   const [fading, setFading] = useState(false)
 
   useEffect(() => {
+    const audio = new Audio('/startup.wav')
+    audio.volume = 0.15
+    audio.play().catch(() => {})
+
     let p = 0
     const t = setInterval(() => {
       // ease-out with a couple of "stalls", like a real boot

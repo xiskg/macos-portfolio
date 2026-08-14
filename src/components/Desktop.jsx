@@ -2,9 +2,10 @@ import { useCallback, useRef, useState } from 'react'
 import { useWindows } from '../system/WindowManager.jsx'
 import { useDesktop } from '../system/DesktopContext.jsx'
 import { useMarqueeSelect } from '../system/useMarqueeSelect.js'
-import { ROOT, desktopItemNames, getNode, iconForNode } from '../content/fileSystem.js'
+import { ROOT, getDesktopItemNames, getNode, iconForNode } from '../content/fileSystem.js'
 import ContextMenu from './ContextMenu.jsx'
 import Icon from './Icon.jsx'
+import WelcomeWidget from './WelcomeWidget.jsx'
 
 const ICON_W = 96
 const ICON_H = 92
@@ -13,11 +14,11 @@ const MARGIN_TOP = 44
 
 export default function Desktop() {
   const { openItem, openWindow } = useWindows()
-  const { wallpaper, cycleWallpaper, toggleDark, iconPositions, setIconPosition } = useDesktop()
+  const { wallpaper, cycleWallpaper, toggleDark, iconPositions, setIconPosition, cleanUpIcons } = useDesktop()
   const { containerRef, registerItem, selected, setSelected, rect, toggle, handlers } = useMarqueeSelect()
   const [menu, setMenu] = useState(null)
 
-  const items = desktopItemNames
+  const items = getDesktopItemNames()
     .map((name) => ({ node: getNode([ROOT, name]), path: [ROOT, name] }))
     .filter((it) => it.node)
 
@@ -37,17 +38,19 @@ export default function Desktop() {
         { label: 'New Folder', disabled: true },
         { label: 'Get Info', disabled: true },
         'sep',
+        { label: 'Clean Up', action: cleanUpIcons },
         { label: 'Change Wallpaper…', action: cycleWallpaper },
         { label: 'Toggle Dark Mode', action: toggleDark },
         'sep',
         { label: 'Open Terminal Here', action: () => openWindow('terminal') },
       ],
     })
-  }, [cycleWallpaper, toggleDark, openWindow, setSelected])
+  }, [cleanUpIcons, cycleWallpaper, toggleDark, openWindow, setSelected])
 
   return (
     <>
       <div className={`wallpaper wp-${wallpaper}`} />
+      <WelcomeWidget />
       <div
         ref={containerRef}
         className="desktop-icons"
@@ -124,7 +127,7 @@ function DesktopIcon({ item, pos, selected, registerRef, onSelect, onOpen, onMov
       <div className="dicon-img">
         <Icon name={iconForNode(item.node)} size={54} />
       </div>
-      <div className="dicon-label">{item.node.name}</div>
+      <div className="dicon-label">{item.node.name.replace(/\.([^.]+)$/, '\u200B.$1')}</div>
     </div>
   )
 }

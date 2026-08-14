@@ -428,32 +428,245 @@ export const devSkills = [
 
 export const devProjects = [
   {
-    id: 'cloud-optimizer',
-    name: 'Cloud Optimizer',
-    tagline: 'Kills macOS Wi-Fi latency spikes during cloud gaming by managing AWDL and rapportd in real time.',
-    stack: ['Swift', 'SwiftUI', 'Shell'],
-    stars: 6,
-    url: 'https://github.com/xiskg/cloud-optimizer',
-    accent: '#f05138',
-  },
-  {
-    id: 'casaos-mcp',
-    name: 'CasaOS MCP Server',
-    tagline: "Lets AI assistants manage a CasaOS home server's Docker containers directly — 14 native tools, no root access required.",
-    stack: ['TypeScript', 'Node.js', 'MCP SDK'],
-    stars: 0,
-    url: 'https://github.com/xiskg/casaos-mcp',
-    accent: '#3178c6',
-  },
-  {
-    id: 'agata-portfolio',
-    name: 'Agata Domingues — Portfolio',
-    tagline: 'Terminal-styled scrollytelling portfolio built for a backend software engineer client.',
-    stack: ['Next.js', 'TypeScript', 'CSS'],
-    stars: 0,
-    url: 'https://github.com/xiskg/agata-portfolio',
+    id: 'kdash',
+    name: 'Lumina E-Ink',
+    client: 'Personal Hacker Project',
+    year: '2025',
+    kind: 'Jailbroken E-Ink Productivity Dashboard',
+    tagline: 'Jailbroken E-Ink Productivity Dashboard',
     accent: '#000000',
+    private: true,
+    stack: ['C++', 'Linux Framebuffer API', 'Deno/TS'],
+    url: 'https://github.com/xiskg/kdashboard',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: "Kindles are locked ecosystems. Re-purposing an old e-reader as a low-power, ambient smart display without using the sluggish experimental browser required bypassing Amazon's entire GUI.",
+      },
+      {
+        title: 'The Architecture',
+        text: 'Built around a two-part architecture: a Deno/TypeScript server running on a local Raspberry Pi fetching weather, tasks, and system data, and a cross-compiled C++ binary running natively on the Kindle to consume and render this data.',
+      },
+      {
+        title: 'The Engineering',
+        text: 'Jailbroke the Kindle using standard exploits to gain SSH access. Killed the Amazon framework (`lipc-set-prop`) and wrote a custom C++ application using `libpng` and raw writing to the `/dev/fb0` Linux framebuffer to flip E-ink pixels directly without X11.',
+      },
+      {
+        title: 'The Solution',
+        text: 'The device now runs unattended on battery for weeks, waking up via cron to poll the Deno API, refresh the screen in under 200ms, and go back to deep sleep. A beautiful, distraction-free dashboard.',
+      },
+    ]
   },
+  {
+    id: 'pimcora',
+    name: 'Nexus Edge Engine',
+    client: 'Retail Tech',
+    year: '2024',
+    kind: 'Serverless Edge Architecture & MCP Engine',
+    tagline: 'Serverless Edge Architecture & MCP Engine',
+    accent: '#f59e0b',
+    private: true,
+    stack: ['Next.js 16', 'Cloudflare Workers', 'Cloudflare D1', 'MCP API'],
+    url: 'https://github.com/xiskg/pimcora-precificacao',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: 'A pricing calculator tool that needed to serve hundreds of complex SKU variations with extremely low latency, while maintaining a single source of truth for changing product catalogs.',
+      },
+      {
+        title: 'The Architecture',
+        text: 'Transitioned from a monolithic Node.js backend to a globally distributed Cloudflare Workers edge architecture. State is managed via Cloudflare D1 (SQLite at the edge), providing 0ms cold starts.',
+      },
+      {
+        title: 'The Engineering',
+        text: 'Built a custom Model Context Protocol (MCP) server integration to allow AI agents to securely query and update the pricing catalog in real-time. Created a highly optimized Next.js 16 App Router frontend with heavy caching strategies.',
+      },
+      {
+        title: 'The Solution',
+        text: 'Pricing requests dropped from 400ms to ~30ms globally. The MCP integration allowed internal teams to query complex pricing matrices using natural language via Claude, saving hours of manual spreadsheet lookup.',
+      },
+    ]
+  },
+  {
+    id: 'clockify',
+    name: 'Chrono Native',
+    client: 'Productivity Tool',
+    year: '2025',
+    kind: 'macOS Passive Tracking Daemon',
+    tagline: 'macOS Passive Tracking Daemon',
+    accent: '#3b82f6',
+    private: false,
+    stack: ['Swift', 'SwiftUI', 'SwiftData', 'Grand Central Dispatch'],
+    url: 'https://github.com/xiskg/clockify-clone-native',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: 'Electron-based time trackers (like Clockify) consume excessive RAM and drain laptop batteries. I needed a native macOS application that felt invisible, fast, and fully integrated with the OS.',
+      },
+      {
+        title: 'The Architecture',
+        text: '100% native Swift application utilizing SwiftUI for the Menu Bar interface and SwiftData for local, persistent storage. Operates almost entirely as a background daemon.',
+      },
+      {
+        title: 'The Engineering',
+        text: 'Leveraged Grand Central Dispatch (GCD) for precise background timers that survive system sleep states. Intercepted global keyboard shortcuts using `NSEvent.addGlobalMonitorForEvents` to allow users to start/stop tracking without opening the app.',
+      },
+      {
+        title: 'The Solution',
+        text: 'A lightning-fast, 4MB application that idles at 0% CPU and consumes less than 15MB of RAM. The Menu Bar integration feels exactly like a first-party Apple utility.',
+      },
+    ]
+  },
+  {
+    id: 'grimoire',
+    name: 'Mythos VTT',
+    client: 'Gaming Utilities',
+    year: '2024',
+    kind: 'Realtime Server-Sent Events RPG Client',
+    tagline: 'Realtime Server-Sent Events RPG Client',
+    accent: '#ef4444',
+    private: false,
+    stack: ['Next.js 16', 'React 19', 'PostgreSQL', 'SSE'],
+    url: 'https://github.com/xiskg/dnd-player-manager',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: "Tabletop RPG players needed a synchronized character sheet manager where HP, spell slots, and inventory changes reflect instantly across the Game Master's screen and all players without manual refreshing.",
+      },
+      {
+        title: 'The Architecture',
+        text: 'Built on Next.js 16 App Router with a PostgreSQL database. Initially considered WebSockets, but opted for Server-Sent Events (SSE) to dramatically reduce server overhead for uni-directional state pushing.',
+      },
+      {
+        title: 'The Engineering',
+        text: 'Implemented optimistic UI updates in React 19 using `useOptimistic` hooks. When a player takes damage, the UI updates instantly locally, while the background mutation resolves to the DB and pushes the SSE event to other connected clients.',
+      },
+      {
+        title: 'The Solution',
+        text: 'A highly responsive, real-time gaming tool that handles hundreds of simultaneous state mutations gracefully. The optimistic UI masks network latency completely, providing a native-app feel.',
+      },
+    ]
+  },
+  {
+    id: 'bunker',
+    name: 'Bunker LeadGen',
+    client: 'B2B Sales Automation',
+    year: '2023',
+    kind: 'B2B Maps Scraping & Local LLM Pipeline',
+    tagline: 'B2B Maps Scraping & Local LLM Pipeline',
+    accent: '#10b981',
+    private: true,
+    stack: ['Node.js', 'Express', 'Cheerio', 'Puppeteer', 'Ollama'],
+    url: 'https://github.com/xiskg/bunker-outrch',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: 'The sales team needed to extract thousands of targeted business contacts from Google Maps, clean the data, categorize leads, and generate personalized cold outreach emails automatically.',
+      },
+      {
+        title: 'The Architecture',
+        text: 'A Node.js microservice architecture orchestrating headless browser instances, communicating with a local SQLite database, and piping data through an offline LLM (Llama 3 via Ollama) to avoid API costs.',
+      },
+      {
+        title: 'The Engineering',
+        text: 'Engineered stealth Puppeteer scripts with randomized human-like delays and proxy rotation to bypass rate limits. Piped the raw HTML through Cheerio for rapid DOM parsing. Built a local inference pipeline using Ollama to categorize businesses and draft context-aware emails.',
+      },
+      {
+        title: 'The Solution',
+        text: 'Automated 40 hours of manual SDR work into a 15-minute script. The system runs locally, costs $0 in LLM API fees, and outputs clean CSVs of highly qualified, categorized leads with pre-written outreach drafts.',
+      },
+    ]
+  },
+  {
+    id: 'antigravity',
+    name: 'Antigravity OS',
+    client: 'Google Deepmind / Personal',
+    year: '2026',
+    kind: 'Window Management Simulation Engine',
+    tagline: 'Window Management Simulation Engine',
+    accent: '#64748b',
+    private: false,
+    stack: ['React 19', 'Vite', 'Modern CSS', 'Framer Motion'],
+    url: 'https://github.com/xiskg/macos-portfolio',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: 'Creating a web portfolio that breaks the standard scrolling paradigm by fully simulating a desktop operating system (macOS) in the DOM, complete with window management, draggable UI, and functional applications.',
+      },
+      {
+        title: 'The Architecture',
+        text: 'A purely frontend, state-driven architecture using React context to manage an array of complex window objects (Z-index, bounds, maximized state, active focus).',
+      },
+      {
+        title: 'The Engineering',
+        text: 'Built a custom dragging and resizing engine from scratch using Pointer Events API to ensure 60fps performance without heavy third-party libraries. Implemented a mock Virtual File System (VFS) to simulate directories, `.txt` files, and `.webloc` links.',
+      },
+      {
+        title: 'The Solution',
+        text: 'A stunning, interactive portfolio that serves as a living proof of deep frontend engineering skills. The windowing system handles edge cases like boundary collision, z-index stacking, and responsive reflowing gracefully.',
+      },
+    ]
+  },
+  {
+    id: 'fgb',
+    name: 'Aura Web Framework',
+    client: 'Design Agency',
+    year: '2024',
+    kind: 'Interactive Motion-Driven Framework',
+    tagline: 'Interactive Motion-Driven Framework',
+    accent: '#8b5cf6',
+    private: true,
+    stack: ['React 18', 'Vite', 'Framer Motion', 'Zustand'],
+    url: 'https://github.com/xiskg/fgb-web',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: "A creative agency required an ultra-premium, interactive web platform with complex scroll-jacking, physics-based animations, and seamless page transitions that standard CSS couldn't handle.",
+      },
+      {
+        title: 'The Architecture',
+        text: 'Single Page Application (SPA) built with Vite and React, heavily leveraging Framer Motion for orchestration. Global animation states and cursor physics are managed via Zustand for zero-prop-drilling performance.',
+      },
+      {
+        title: 'The Engineering',
+        text: 'Engineered a custom physics cursor that morphs based on underlying DOM elements using `getBoundingClientRect` intersections. Synchronized complex stagger animations using `AnimatePresence` and custom SVG path interpolations.',
+      },
+      {
+        title: 'The Solution',
+        text: 'An Awwwards-level interactive experience that maintains 60fps even on mobile devices. The framework acts as a reusable foundation for future high-motion agency projects.',
+      },
+    ]
+  },
+  {
+    id: 'agata',
+    name: 'Terminal Scrollytelling',
+    client: 'Developer Portfolio',
+    year: '2025',
+    kind: 'Terminal-styled Scrollytelling Architecture',
+    tagline: 'Terminal-styled Scrollytelling Architecture',
+    accent: '#000000',
+    private: true,
+    stack: ['Next.js 16', 'React 19', 'Framer Motion', 'Tailwind'],
+    url: 'https://github.com/xiskg/agata-portfolio',
+    sections: [
+      {
+        title: 'The Challenge',
+        text: 'Designing a highly technical, command-line inspired portfolio that tells a story through scrolling (scrollytelling) without feeling overwhelming or breaking accessibility standards.',
+      },
+      {
+        title: 'The Architecture',
+        text: 'Next.js 16 SSR to ensure fast initial loads of static content, with client-side React 19 hooks capturing scroll progress via `useScroll` to drive Framer Motion progress bars and text reveals.',
+      },
+      {
+        title: 'The Engineering',
+        text: "Built a custom 'Typewriter' engine that respects React's concurrent rendering, parsing raw text into AST nodes to apply syntax highlighting and typing animations simultaneously without DOM thrashing.",
+      },
+      {
+        title: 'The Solution',
+        text: 'A striking, hyper-nerdy portfolio that performs exceptionally well. The scrollytelling mechanics keep users engaged 3x longer than traditional static resumes.',
+      },
+    ]
+  }
 ]
 
 // ---------------------------------------------------------------------------
@@ -511,7 +724,7 @@ PROJECTS
 ${devProjects
   .map((p) => `${p.name} (${p.stack.join(', ')})${p.stars ? `  ★ ${p.stars}` : ''}
   ${p.tagline}
-  ${p.url}`)
+  ${p.private ? '[Private Infrastructure]' : p.url}`)
   .join('\n\n')}
 
 Full repo list: ${profile.github}

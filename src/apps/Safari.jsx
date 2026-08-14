@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { profile, projects, devProjects } from '../content/portfolio.js'
+import { isDev } from '../content/fileSystem.js'
 import Icon from '../components/Icon.jsx'
 
 const HOST = 'dealmeida.me'
@@ -91,33 +92,53 @@ export default function Safari({ url }) {
 }
 
 function StartPage({ nav, ext }) {
+  const d = isDev()
   return (
     <div className="safari-start">
-      <h2>Case Studies</h2>
-      <div className="start-grid">
-        {projects.map((p) => (
-          <button key={p.id} className="start-item" onClick={() => nav({ type: 'project', id: p.id })}>
-            <div
-              className="start-thumb"
-              style={{ background: `linear-gradient(135deg, ${p.image.from}, ${p.image.to})` }}
-            >
-              <img src={p.thumb} alt={p.name} loading="lazy" />
-            </div>
-            <span>{p.name}</span>
-          </button>
-        ))}
-      </div>
-      <h2 style={{ marginTop: 40 }}>Tech Projects</h2>
-      <div className="start-grid">
-        {devProjects.map((p) => (
-          <button key={p.id} className="start-item" onClick={() => ext(p.url)} title={p.tagline}>
-            <div className="start-thumb" style={{ background: p.accent, display: 'grid', placeItems: 'center' }}>
-              <Icon name="code" size={56} style={{ color: '#fff' }} />
-            </div>
-            <span>{p.name}</span>
-          </button>
-        ))}
-      </div>
+      {!d && (
+        <>
+          <h2>Case Studies</h2>
+          <div className="start-grid">
+            {projects.map((p) => (
+              <button key={p.id} className="start-item" onClick={() => nav({ type: 'project', id: p.id })}>
+                <div
+                  className="start-thumb"
+                  style={{ background: `linear-gradient(135deg, ${p.image.from}, ${p.image.to})` }}
+                >
+                  <img src={p.thumb} alt={p.name} loading="lazy" />
+                </div>
+                <span>{p.name}</span>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+      {d && (
+        <>
+          <h2 style={{ marginTop: 0 }}>Engineering Architecture</h2>
+          <div className="dev-grid">
+            {devProjects.map((p) => (
+              <button key={p.id} className="dev-card" onClick={() => nav({ type: 'project', id: p.id })} title={p.tagline}>
+                <div className="dev-card-header">
+                  <div className="dev-card-header-left">
+                    <div className="dev-card-icon" style={{ background: p.accent }}>
+                      <Icon name="code" size={16} style={{ color: '#fff' }} />
+                    </div>
+                    <span className="dev-card-title">{p.name}</span>
+                  </div>
+                  {p.private && <Icon name="lock" size={14} style={{ color: 'var(--text-3)' }} />}
+                </div>
+                <p className="dev-card-tagline">{p.tagline}</p>
+                <div className="dev-card-stack">
+                  {p.stack.slice(0, 3).map((t) => (
+                    <span key={t} className="dev-card-chip">{t}</span>
+                  ))}
+                </div>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
       <h2 style={{ marginTop: 40 }}>Around the Web</h2>
       <div className="start-grid">
         <button className="start-item" onClick={() => ext(profile.linkedin)}>
@@ -138,8 +159,10 @@ function StartPage({ nav, ext }) {
 }
 
 function ProjectPage({ id, nav }) {
-  const p = useMemo(() => projects.find((x) => x.id === id), [id])
+  const p = useMemo(() => projects.find((x) => x.id === id) || devProjects.find((x) => x.id === id), [id])
   if (!p) return <div className="safari-start"><h2>404 — Not Found</h2></div>
+
+  const isDevProj = !!p.stack
 
   const contactMe = () => {
     window.location.href =
@@ -150,24 +173,28 @@ function ProjectPage({ id, nav }) {
   // Case-study layout: text sections interleaved with the gallery images,
   // one at a time.
   const interleaved = []
-  p.sections.forEach((s, i) => {
-    interleaved.push({ type: 'section', data: s, key: `s-${i}` })
-    if (p.gallery[i]) interleaved.push({ type: 'image', data: p.gallery[i], key: `i-${i}` })
-  })
-  p.gallery.slice(p.sections.length).forEach((u, i) => {
-    interleaved.push({ type: 'image', data: u, key: `i-x-${i}` })
-  })
+  if (p.sections) {
+    p.sections.forEach((s, i) => {
+      interleaved.push({ type: 'section', data: s, key: `s-${i}` })
+      if (!isDevProj && p.gallery && p.gallery[i]) interleaved.push({ type: 'image', data: p.gallery[i], key: `i-${i}` })
+    })
+  }
+  if (!isDevProj && p.gallery) {
+    p.gallery.slice(p.sections?.length || 0).forEach((u, i) => {
+      interleaved.push({ type: 'image', data: u, key: `i-x-${i}` })
+    })
+  }
 
   return (
     <div>
       <div className="proj-body">
         <div className="proj-hero">
-          <span className="proj-rule" style={{ background: p.image.from }} />
+          <span className="proj-rule" style={{ background: isDevProj ? p.accent : p.image.from }} />
           <h1>{p.name}</h1>
           <p className="proj-tag">{p.tagline}</p>
-          <span className="proj-kind">{p.kind}</span>
+          <span className="proj-kind">{isDevProj ? 'Software Engineering' : p.kind}</span>
         </div>
-        <p className="proj-meta">{p.client} · {p.year}</p>
+        {!isDevProj && <p className="proj-meta">{p.client} · {p.year}</p>}
 
         {interleaved.map((block) =>
           block.type === 'section' ? (
@@ -181,16 +208,30 @@ function ProjectPage({ id, nav }) {
         )}
 
         <div className="chips">
-          {p.deliverables.map((t) => <span key={t} className="chip">{t}</span>)}
+          {(isDevProj ? p.stack : p.deliverables).map((t) => <span key={t} className="chip">{t}</span>)}
         </div>
-        <blockquote className="proj-quote">
-          {p.testimonial}
-          <footer>— {p.testimonialAuthor}</footer>
-        </blockquote>
+        {p.testimonial && (
+          <blockquote className="proj-quote">
+            {p.testimonial}
+            <footer>— {p.testimonialAuthor}</footer>
+          </blockquote>
+        )}
         <div className="proj-actions">
-          <button className="abtn" onClick={contactMe}>
-            <Icon name="mailGlyph" size={16} /> Let's Work Together
-          </button>
+          {isDevProj && !p.private && (
+            <button className="abtn" onClick={() => window.open(p.url, '_blank')}>
+              <Icon name="github" size={16} /> View Source Code
+            </button>
+          )}
+          {isDevProj && p.private && (
+            <button className="abtn" disabled style={{ cursor: 'not-allowed', opacity: 0.6 }}>
+              <Icon name="lock" size={15} /> Private Infrastructure
+            </button>
+          )}
+          {!isDevProj && (
+            <button className="abtn" onClick={contactMe}>
+              <Icon name="mailGlyph" size={16} /> Let's Work Together
+            </button>
+          )}
           <button className="abtn secondary" onClick={() => nav({ type: 'start' })}>
             <Icon name="gridView" size={15} /> Back to All Work
           </button>

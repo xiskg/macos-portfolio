@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { DesktopProvider, useDesktop } from './system/DesktopContext.jsx'
 import { WindowManagerProvider, useWindows } from './system/WindowManager.jsx'
+import { setFSPersona } from './content/fileSystem.js'
 import { APP_COMPONENTS } from './apps/index.js'
 import BootScreen from './components/BootScreen.jsx'
+import LoginScreen from './components/LoginScreen.jsx'
 import MenuBar from './components/MenuBar.jsx'
 import Desktop from './components/Desktop.jsx'
 import Dock from './components/Dock.jsx'
@@ -12,6 +14,7 @@ import Launchpad from './components/Launchpad.jsx'
 import ControlCenter from './components/ControlCenter.jsx'
 import NotificationCenter from './components/NotificationCenter.jsx'
 import Icon from './components/Icon.jsx'
+import MobileNotice from './components/MobileNotice.jsx'
 
 const OVERLAY_CHROME = new Set(['safari']) // apps that draw their own toolbar
 
@@ -29,42 +32,69 @@ function useIsMobile() {
 
 export default function App() {
   const isMobile = useIsMobile()
-  const [phase, setPhase] = useState('boot') // 'boot' | 'on' | 'off'
+  const [phase, setPhase] = useState('off') // 'boot' | 'login' | 'on' | 'off'
   const [bootKey, setBootKey] = useState(0)
+  const [fsKey, setFsKey] = useState(0)
 
-  if (isMobile) return <MobileNotice />
+  if (isMobile) {
+    return <MobileNotice />
+  }
 
   const restart = () => {
     setBootKey((k) => k + 1)
     setPhase('boot')
   }
   const shutdown = () => setPhase('off')
+  const logout = () => {
+    setBootKey((k) => k + 1)
+    setPhase('login')
+  }
 
   return (
     <DesktopProvider>
       {phase === 'off' ? (
-        <div className="poweroff">
-          <button
-            onClick={() => {
-              setBootKey((k) => k + 1)
-              setPhase('boot')
-            }}
-          >
-            <Icon name="apple" size={44} />
-            Click to power on
-          </button>
-        </div>
+        <PowerOffScreen onPowerOn={() => {
+          setBootKey((k) => k + 1)
+          setPhase('boot')
+        }} />
       ) : (
         <WindowManagerProvider key={bootKey}>
-          <Shell onRestart={restart} onShutdown={shutdown} />
-          {phase === 'boot' && <BootScreen onDone={() => setPhase('on')} />}
+          <Shell onRestart={restart} onShutdown={shutdown} onLogout={logout} />
+          {(phase === 'boot' || phase === 'login') && (
+            <LoginScreen onSleep={shutdown} onPersonaSelected={(persona) => {
+               setFSPersona(persona)
+               setFsKey((k) => k + 1)
+            }} onLogin={() => {
+               setPhase('on')
+            }} />
+          )}
+          {phase === 'boot' && <BootScreen onDone={() => setPhase('login')} />}
         </WindowManagerProvider>
       )}
     </DesktopProvider>
   )
 }
 
-function Shell({ onRestart, onShutdown }) {
+function PowerOffScreen({ onPowerOn }) {
+  const { wallpaper } = useDesktop()
+
+  return (
+    <div className="poweroff" style={{ backgroundImage: `url('/wallpapers/custom.jpg')` }}>
+      <div className="poweroff-blur" />
+      <div className="poweroff-content">
+        <h1>João de Almeida</h1>
+        <p>Brand Design & Creative Development</p>
+        
+        <button onClick={onPowerOn} className="poweroff-btn">
+          <Icon name="apple" size={32} />
+          <span>Click to power on</span>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function Shell({ onRestart, onShutdown, onLogout }) {
   const { windows, openWindow } = useWindows()
   const { brightness, setOverlay, overlays } = useDesktop()
 
@@ -115,7 +145,7 @@ function Shell({ onRestart, onShutdown }) {
           </Window>
         )
       })}
-      <MenuBar onRestart={onRestart} onShutdown={onShutdown} />
+      <MenuBar onRestart={onRestart} onShutdown={onShutdown} onLogout={onLogout} />
       <Dock />
       <Spotlight />
       <Launchpad />
@@ -124,24 +154,6 @@ function Shell({ onRestart, onShutdown }) {
       {brightness < 1 && (
         <div className="brightness-overlay" style={{ opacity: (1 - brightness) * 0.9 }} />
       )}
-    </div>
-  )
-}
-
-function MobileNotice() {
-  return (
-    <div className="mobile-notice">
-      <div className="wallpaper wp-0" />
-      <div className="mobile-card">
-        <Icon name="finder" size={64} />
-        <h2>See you on desktop</h2>
-        <p>
-          This portfolio is a full macOS desktop simulation — windows, Dock,
-          Spotlight and all. It doesn't fit a phone screen yet, so pull it up
-          on a laptop or desktop to see the whole thing.
-        </p>
-        <span className="mobile-note">A dedicated mobile experience is on the way.</span>
-      </div>
     </div>
   )
 }

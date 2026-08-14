@@ -4,7 +4,13 @@ import { notificationsSeed } from '../content/portfolio.js'
 const Ctx = createContext(null)
 export const useDesktop = () => useContext(Ctx)
 
-export const WALLPAPERS = ['Tahoe Aurora', 'Sequoia Sunrise', 'Graphite Midnight', 'Big Sur Bloom']
+export const WALLPAPERS = [
+  'My Mac',
+  'Olympus Trip 35 - 35390002',
+  'Olympus Trip 35 - 35390011',
+  'Olympus Trip 35 - 35390015',
+  'Olympus Trip 35 - 35390019',
+]
 
 const load = (k, fallback) => {
   try {
@@ -96,6 +102,11 @@ export function DesktopProvider({ children }) {
 
   const clearNotifications = useCallback(() => setNotifications([]), [])
 
+  const cleanUpIcons = useCallback(() => {
+    setIconPositions({})
+    save('iconPositions', {})
+  }, [])
+
   const value = useMemo(
     () => ({
       wallpaper,
@@ -111,6 +122,7 @@ export function DesktopProvider({ children }) {
       toggle,
       iconPositions,
       setIconPosition,
+      cleanUpIcons,
       overlays,
       setOverlay,
       closeOverlays,
@@ -121,7 +133,7 @@ export function DesktopProvider({ children }) {
     }),
     [
       wallpaper, setWallpaper, cycleWallpaper, dark, toggleDark, brightness, volume,
-      toggles, toggle, iconPositions, setIconPosition, overlays, setOverlay,
+      toggles, toggle, iconPositions, setIconPosition, cleanUpIcons, overlays, setOverlay,
       closeOverlays, anyOverlayOpen, notifications, pushNotification, clearNotifications,
     ]
   )

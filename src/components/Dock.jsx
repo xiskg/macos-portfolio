@@ -92,6 +92,7 @@ export default function Dock() {
           style={{ width: s, height: s }}
           onClick={onClick}
           aria-label={name}
+          data-cuelume-press="press"
         >
           <Icon name={iconName} size={52} />
         </button>

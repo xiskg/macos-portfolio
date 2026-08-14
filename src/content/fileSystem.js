@@ -11,6 +11,7 @@
 import {
   profile,
   projects,
+  devProjects,
   experience,
   education,
   skills,
@@ -18,35 +19,35 @@ import {
   resumeText,
   devResumeText,
   creditsText,
-  aboutParagraphs,
 } from './portfolio.js'
 
 export const ROOT = 'Macintosh HD'
+
+let currentPersona = 'designer'
+export const setFSPersona = (p) => { currentPersona = p }
+export const isDev = () => currentPersona === 'dev'
 
 const txt = (name, content) => ({ name, type: 'txt', content })
 const img = (name, projectId) => ({ name, type: 'img', projectId })
 const webloc = (name, url, external = true) => ({ name, type: 'webloc', url, external })
 const folder = (name, children) => ({ name, type: 'folder', children })
 
-const aboutText = `ABOUT ME
-========
 
-${aboutParagraphs.join('\n\n')}
 
-SKILLS
-------
-${skills.map((s) => `${s.group}:\n  ${s.items.join(' · ')}`).join('\n\n')}
+const projectReadme = (p) => {
+  if (p.stack) {
+    return `${p.name.toUpperCase()}
+${'='.repeat(p.name.length)}
+Stack: ${p.stack.join(', ')}
 
-KEY NUMBERS
------------
-${metrics.map((m) => `  ${m.value}  ${m.label}`).join('\n')}
+${p.tagline}
 
-EDUCATION
----------
-${education.map((e) => `${e.degree}\n${e.school} · ${e.period}\n${e.detail}`).join('\n\n')}
-`
-
-const projectReadme = (p) => `${p.name.toUpperCase()}
+${p.sections ? p.sections.map((s) => `${s.title.toUpperCase()}
+${'-'.repeat(s.title.length)}
+${s.text}`).join('\n\n') + '\n\n' : ''}${p.private ? 'Note: Repository is strictly private.' : `Source code: ${p.url}`}
+${p.stars ? `Stars: ${p.stars} ★\n` : ''}`
+  }
+  return `${p.name.toUpperCase()}
 ${'='.repeat(p.name.length)}
 ${p.client} · ${p.year} · ${p.kind}
 
@@ -69,6 +70,7 @@ ${p.testimonial}
 
 Want the full case study walkthrough? Just ask: ${profile.email}
 `
+}
 
 const jobText = (j) => `${j.role.toUpperCase()}
 ${j.company} · ${j.period} · ${j.location}
@@ -81,39 +83,49 @@ ${j.bullets.map((b) => `  • ${b}`).join('\n\n')}
 //  The tree
 // ---------------------------------------------------------------------------
 
-export const tree = folder(ROOT, [
-  folder('Portfolio', projects.flatMap((p) => [
-    folder(p.name, [
-      txt('Case Study.txt', projectReadme(p)),
-      img('Hero Image.png', p.id),
-      webloc('Open in Safari.webloc', `case:${p.id}`, false),
-    ]),
-  ])),
-  folder('Work Experience', [
-    ...experience.map((j) => txt(`${j.company} — ${j.role}.txt`, jobText(j))),
-    webloc('LinkedIn Profile.webloc', profile.linkedin, true),
-  ]),
-  txt('About Me.txt', aboutText),
-  txt('Resume.txt', resumeText),
-  txt('Dev Resume.txt', devResumeText),
-  txt('Credits.txt', creditsText),
-  webloc('GitHub.webloc', profile.github, true),
-  webloc('LinkedIn.webloc', profile.linkedin, true),
-  webloc('Contact.webloc', `mailto:${profile.email}`, true),
-])
+export function getTree() {
+  const d = isDev()
+  const activeProjects = d ? devProjects : projects
+  const activeExp = d ? [] : experience // Dev has no experience array yet
+  const resumeName = 'Resume.txt'
+  const resumeTxt = d ? devResumeText : resumeText
 
-// Items shown on the Desktop itself (names must exist at the root level).
-export const desktopItemNames = [
-  'Portfolio',
-  'Work Experience',
-  'About Me.txt',
-  'Resume.txt',
-  'Dev Resume.txt',
-  'Credits.txt',
-  'GitHub.webloc',
-  'LinkedIn.webloc',
-  'Contact.webloc',
-]
+  return folder(ROOT, [
+    folder('Portfolio', activeProjects.flatMap((p) => [
+      folder(p.name, [
+        txt(d ? 'README.txt' : 'Case Study.txt', projectReadme(p)),
+        ...(p.hero ? [img('Hero Image.png', p.id)] : []),
+        ...(d && p.private ? [] : [webloc(d ? 'View Source.webloc' : 'Open in Safari.webloc', d ? p.url : `case:${p.id}`, !!d)]),
+      ]),
+    ])),
+    ...(activeExp.length > 0 ? [
+      folder('Work Experience', [
+        ...activeExp.map((j) => txt(`${j.company} — ${j.role}.txt`, jobText(j))),
+        webloc('LinkedIn Profile.webloc', profile.linkedin, true),
+      ])
+    ] : []),
+
+    txt(resumeName, resumeTxt),
+    txt('Credits.txt', creditsText),
+    ...(d ? [webloc('GitHub.webloc', profile.github, true)] : []),
+    webloc('LinkedIn.webloc', profile.linkedin, true),
+    webloc('Contact.webloc', `mailto:${profile.email}`, true),
+  ])
+}
+
+export function getDesktopItemNames() {
+  const d = isDev()
+  return [
+    'Portfolio',
+    ...(d ? [] : ['Work Experience']),
+
+    'Resume.txt',
+    'Credits.txt',
+    ...(d ? ['GitHub.webloc'] : []),
+    'LinkedIn.webloc',
+    'Contact.webloc',
+  ]
+}
 
 // ---------------------------------------------------------------------------
 //  Helpers
@@ -122,7 +134,7 @@ export const desktopItemNames = [
 export function getNode(pathArr) {
   if (!pathArr || pathArr.length === 0) return null
   if (pathArr[0] !== ROOT) return null
-  let node = tree
+  let node = getTree()
   for (let i = 1; i < pathArr.length; i++) {
     if (node.type !== 'folder') return null
     node = node.children.find((c) => c.name === pathArr[i])
@@ -144,7 +156,7 @@ export function flattenTree() {
       node.children.forEach((c) => walk(c, [...pathArr, c.name]))
     }
   }
-  tree.children.forEach((c) => walk(c, [ROOT, c.name]))
+  getTree().children.forEach((c) => walk(c, [ROOT, c.name]))
   return out
 }
 
@@ -173,7 +185,14 @@ export function sizeOf(node) {
 export function iconForNode(node) {
   if (node.type === 'folder') return 'folder'
   if (node.type === 'img') return 'img'
-  if (node.type === 'webloc') return 'webloc'
+  if (node.type === 'webloc') {
+    const name = node.name.toLowerCase()
+    if (name.includes('github')) return 'github'
+    if (name.includes('linkedin')) return 'linkedin'
+    if (name.includes('contact') || name.includes('mail')) return 'mail'
+    if (name.includes('safari')) return 'safari'
+    return 'webloc'
+  }
   return 'txt'
 }
 

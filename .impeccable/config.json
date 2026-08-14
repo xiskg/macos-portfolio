@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-07-28T14:40:44.056Z",
         "reason": "User confirmed .window.animating's left/top/width/height transition is the real window-manager move/resize animation, not decorative motion"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles/ios.css"
+        ],
+        "createdAt": "2026-07-30T12:36:37.515Z",
+        "reason": "Testimonial blockquote left rule (.ios-proj-quote) — same intentional pattern as .proj-quote on desktop, already confirmed as a false positive by the user for this project (see HANDOFF.md)."
       }
     ]
   }

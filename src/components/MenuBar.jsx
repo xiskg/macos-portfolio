@@ -16,7 +16,7 @@ const APP_NAMES = {
   about: 'Finder',
 }
 
-export default function MenuBar({ onRestart, onShutdown }) {
+export default function MenuBar({ onRestart, onShutdown, onLogout }) {
   const { activeAppId, activeWindow, openWindow, closeWindow, closeAppWindows, minimizeWindow, toggleMaximize } =
     useWindows()
   const { toggles, toggle, toggleDark, cycleWallpaper, setOverlay, overlays, dark, pushNotification } = useDesktop()
@@ -68,7 +68,8 @@ export default function MenuBar({ onRestart, onShutdown }) {
       { label: 'Restart…', action: onRestart },
       { label: 'Shut Down…', action: onShutdown },
       'sep',
-      { label: `Log Out ${profile.name}…`, shortcut: '⇧⌘Q', disabled: true },
+      { label: 'Lock Screen', shortcut: '⌃⌘Q', action: onLogout },
+      { label: `Log Out ${profile.name}…`, shortcut: '⇧⌘Q', action: onLogout },
     ],
     app: [
       { label: `About ${appName}`, action: () => openWindow('about') },
@@ -183,16 +184,18 @@ export default function MenuBar({ onRestart, onShutdown }) {
           className="mb-status"
           title={toggles.wifi ? 'Wi-Fi: connected' : 'Wi-Fi: off'}
           onClick={() => toggle('wifi')}
+          data-cuelume-press="toggle"
         >
           <Icon name="wifi" size={17} style={toggles.wifi ? undefined : { opacity: 0.45 }} />
         </div>
-        <div className="mb-status" title="Spotlight (⌘Space)" onClick={() => setOverlay('spotlight', true)}>
+        <div className="mb-status" title="Spotlight (⌘Space)" onClick={() => setOverlay('spotlight', true)} data-cuelume-press="press">
           <Icon name="search" size={15} />
         </div>
         <div
           className={`mb-status${overlays.cc ? ' open' : ''}`}
           title="Control Center"
           onClick={() => setOverlay('cc', true)}
+          data-cuelume-press="press"
         >
           <Icon name="cc" size={16} />
         </div>
@@ -200,6 +203,7 @@ export default function MenuBar({ onRestart, onShutdown }) {
           className="mb-status mb-clock"
           title="Notification Center"
           onClick={() => setOverlay('nc', true)}
+          data-cuelume-press="press"
         >
           {menuBarDate(now)}
         </div>
@@ -218,6 +222,7 @@ export default function MenuBar({ onRestart, onShutdown }) {
                   setOpen(null)
                   it.action?.()
                 }}
+                data-cuelume-press="press"
               >
                 <span>{it.label}</span>
                 {it.shortcut && <span className="shortcut">{it.shortcut}</span>}

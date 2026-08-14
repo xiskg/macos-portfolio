@@ -592,6 +592,91 @@
   color: var(--text-2);
 }
 
+.dev-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.dev-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--field-bg);
+  border: 0.5px solid var(--separator);
+  text-align: left;
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+  min-height: 125px;
+}
+
+.dev-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dev-card-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.dev-card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dev-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.dev-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.dev-card-tagline {
+  font-size: 12.5px;
+  color: var(--text-2);
+  margin: 2px 0 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.dev-card-stack {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.dev-card-chip {
+  font-size: 10.5px;
+  padding: 3px 7px;
+  background: var(--win-bg);
+  border: 0.5px solid var(--separator);
+  border-radius: 6px;
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+
 /* Safari project page */
 .proj-hero {
   display: flex;

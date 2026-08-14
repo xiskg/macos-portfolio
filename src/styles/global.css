@@ -118,7 +118,7 @@ textarea:focus {
 }
 
 /* ==========================================================================
-   Desktop root & wallpapers (hand-made CSS gradients, Tahoe-inspired)
+   Desktop root & wallpapers
    ========================================================================== */
 
 .desktop-root {
@@ -130,59 +130,14 @@ textarea:focus {
 .wallpaper {
   position: absolute;
   inset: 0;
-  background: #081226;
+  background-size: cover;
+  background-position: center;
 }
-
-.wallpaper::after {
-  content: '';
-  position: absolute;
-  inset: -12%;
-  filter: blur(70px) saturate(1.25);
-  transition: opacity 0.5s;
-}
-
-.wp-0 {
-  background: #081226;
-}
-.wp-0::after {
-  background:
-    radial-gradient(46% 56% at 72% 16%, rgba(56, 132, 255, 0.75), transparent 65%),
-    radial-gradient(42% 52% at 16% 84%, rgba(139, 92, 246, 0.68), transparent 65%),
-    radial-gradient(36% 42% at 90% 80%, rgba(34, 211, 238, 0.5), transparent 65%),
-    radial-gradient(52% 46% at 40% 44%, rgba(37, 99, 235, 0.38), transparent 70%);
-}
-
-.wp-1 {
-  background: #1a0b2e;
-}
-.wp-1::after {
-  background:
-    radial-gradient(44% 52% at 80% 84%, rgba(249, 115, 22, 0.66), transparent 65%),
-    radial-gradient(40% 48% at 22% 74%, rgba(236, 72, 153, 0.6), transparent 65%),
-    radial-gradient(46% 50% at 62% 16%, rgba(139, 92, 246, 0.62), transparent 65%),
-    radial-gradient(26% 30% at 88% 55%, rgba(251, 191, 36, 0.42), transparent 70%);
-}
-
-.wp-2 {
-  background: #0b0d10;
-}
-.wp-2::after {
-  background:
-    radial-gradient(44% 52% at 72% 28%, rgba(59, 130, 246, 0.32), transparent 65%),
-    radial-gradient(40% 46% at 20% 80%, rgba(148, 163, 184, 0.2), transparent 65%),
-    radial-gradient(30% 36% at 88% 86%, rgba(56, 189, 248, 0.22), transparent 70%);
-}
-
-.wp-3 {
-  background: #1e1b4b;
-}
-.wp-3::after {
-  background:
-    radial-gradient(38% 44% at 28% 22%, rgba(240, 171, 252, 0.55), transparent 65%),
-    radial-gradient(42% 48% at 76% 78%, rgba(251, 146, 60, 0.5), transparent 65%),
-    radial-gradient(34% 38% at 82% 18%, rgba(52, 211, 153, 0.42), transparent 65%),
-    radial-gradient(40% 44% at 14% 82%, rgba(59, 130, 246, 0.5), transparent 70%);
-}
+.wallpaper.wp-0 { background-image: url('/wallpapers/custom.jpg'); }
+.wallpaper.wp-1 { background-image: url('/wallpapers/wp-1.jpg'); }
+.wallpaper.wp-2 { background-image: url('/wallpapers/wp-2.jpg'); }
+.wallpaper.wp-3 { background-image: url('/wallpapers/wp-3.jpg'); }
+.wallpaper.wp-4 { background-image: url('/wallpapers/wp-4.jpg'); }
 
 [data-theme='dark'] .wallpaper {
   filter: brightness(0.72) saturate(1.05);
@@ -364,24 +319,74 @@ textarea:focus {
   inset: 0;
   background: #000;
   z-index: 5000;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.poweroff button {
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 13px;
+.poweroff-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(80px) brightness(0.25);
+  -webkit-backdrop-filter: blur(80px) brightness(0.25);
+  z-index: 1;
+}
+
+.poweroff-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.poweroff-content h1 {
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.poweroff-content p {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 40px 0;
+}
+
+.poweroff-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  padding: 24px;
-  border-radius: 16px;
-  transition: color 0.2s;
+  padding: 24px 44px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, border-color 0.3s, color 0.3s;
+  animation: pulse-op 4s infinite ease-in-out;
 }
 
-.poweroff button:hover {
-  color: rgba(255, 255, 255, 0.8);
+.poweroff-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+@keyframes pulse-op {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
 
 /* ==========================================================================

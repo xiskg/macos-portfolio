@@ -190,10 +190,10 @@ export default function Window({ win, children, chrome = 'default' }) {
 function Traffic({ win, overlay = false, closeWindow, minimizeWindow, toggleMaximize }) {
   return (
     <div className={`traffic${overlay ? ' overlay' : ''}`}>
-      <button className="tl close" aria-label="Close" onClick={() => closeWindow(win.id)}>
+      <button className="tl close" aria-label="Close" onClick={() => closeWindow(win.id)} data-cuelume-press="tick">
         <Icon name="x" size={8} />
       </button>
-      <button className="tl min" aria-label="Minimize" onClick={() => minimizeWindow(win.id)}>
+      <button className="tl min" aria-label="Minimize" onClick={() => minimizeWindow(win.id)} data-cuelume-press="tick">
         <Icon name="minus" size={8} />
       </button>
       <button
@@ -201,6 +201,7 @@ function Traffic({ win, overlay = false, closeWindow, minimizeWindow, toggleMaxi
         aria-label="Zoom"
         onClick={() => !win.noResize && toggleMaximize(win.id)}
         style={win.noResize ? { visibility: 'hidden' } : undefined}
+        data-cuelume-press="tick"
       >
         <Icon name="plus" size={8} />
       </button>
