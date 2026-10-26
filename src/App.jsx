@@ -89,6 +89,7 @@ function PowerOffScreen({ onPowerOn }) {
           <Icon name="apple" size={32} />
           <span>Click to power on</span>
         </button>
+        <a className="product-portfolio-link" href="/product-design/">View product design work <span aria-hidden="true">→</span></a>
       </div>
     </div>
   )

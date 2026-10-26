@@ -11,6 +11,8 @@ imagery is served from the original portfolio's CDN.
 
 ## Run it
 
+The product-design portfolio lives at [`/product-design/`](https://dealmeida.me/product-design/), with its case at `/product-design/work/fastgovbid/`. Its self-contained source is in [`product-design/`](product-design/README.md). Builds require Node.js and Python 3 (standard library only); both are available in Cloudflare Workers Builds. `npm run build` builds both portfolios for the same deployment.
+
 ```bash
 npm install
 npm run dev      # http://localhost:5173

@@ -393,6 +393,37 @@ textarea:focus {
    Mobile notice
    ========================================================================== */
 
+.product-portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.64);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.product-portfolio-link:hover {
+  background: rgba(0, 0, 0, 0.82);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.product-portfolio-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+.welcome-widget .product-portfolio-link { margin-top: 18px; }
+.poweroff-content .product-portfolio-link { margin-top: 12px; }
+
 .mobile-notice {
   position: fixed;
   inset: 0;

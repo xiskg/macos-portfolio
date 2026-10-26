@@ -1,0 +1,18 @@
+[
+  {
+    "family": "Archivo",
+    "cssSource": "https://fonts.googleapis.com/css2?family=Archivo:wght@400..700&display=swap",
+    "fileSource": "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+    "bytes": 34940,
+    "subset": "latin",
+    "license": "SIL Open Font License"
+  },
+  {
+    "family": "Inter",
+    "cssSource": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap",
+    "fileSource": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+    "bytes": 48432,
+    "subset": "latin",
+    "license": "SIL Open Font License"
+  }
+]

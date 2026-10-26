@@ -72,6 +72,9 @@ export default function Safari({ url }) {
         <button className="fav" onClick={() => nav({ type: 'start' })}>
           <Icon name="safari" size={16} /> Start Page
         </button>
+        <a className="fav" href="/product-design/">
+          <Icon name="safari" size={16} /> Product Design
+        </a>
         <button className="fav" onClick={() => ext(profile.linkedin)}>
           <Icon name="linkedin" size={16} /> LinkedIn
         </button>

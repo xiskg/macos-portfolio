@@ -1,11 +1,17 @@
 {
   // Cloudflare Workers (Static Assets) — deploy do portfólio estático.
-  // Vite/React puro, sem rotas client-side; serve os arquivos de dist/ como estão.
+  // macOS na raiz; portfólio estático em /product-design/.
   "name": "macos-portfolio",
-  "compatibility_date": "2026-07-28",
+  "main": "worker/media.js",
+  "compatibility_date": "2026-10-26",
   "compatibility_flags": ["nodejs_compat"],
+  "upload_source_maps": true,
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 },
   "assets": {
     "directory": "dist",
-    "not_found_handling": "single-page-application"
+    "binding": "ASSETS",
+    "run_worker_first": ["/product-design/assets/video/fastgovbid-walkthrough.mp4"],
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
   }
 }

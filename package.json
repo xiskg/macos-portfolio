@@ -6,9 +6,10 @@
   "author": "João de Almeida (https://github.com/xiskg)",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "python3 product-design/build.py && vite",
+    "build": "python3 product-design/build.py && vite build",
+    "preview": "vite preview",
+    "test:media": "node --test worker/media.test.js"
   },
   "dependencies": {
     "cuelume": "^0.2.2",

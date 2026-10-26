@@ -1,0 +1,570 @@
+{
+  "generatedAt": "2026-10-25T04:01:40.595Z",
+  "method": "Playwright Chrome, native DOM captures at deviceScaleFactor 1.5; WebP quality 93.",
+  "provenanceEmbedding": {
+    "status": "complete",
+    "method": "impeccable embed-prompt; WebP origin sidecars, PNG embedded metadata",
+    "assets": 16,
+    "note": "The two search-advanced WebPs have adjacent sidecar JSON files because WebP metadata is stored as sidecars."
+  },
+  "networkPolicy": "Local loopback only; no remote assets loaded.",
+  "blockedRequests": [],
+  "failedRequests": [],
+  "assets": [
+    {
+      "file": "search-guided.webp",
+      "originFile": "motion/batch/prepared/bid-search/screen-01.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "1XZ7-1",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 1429
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 2144
+      },
+      "bytes": 262072,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Bid Search",
+      "paperPageId": "I-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "search-picker.webp",
+      "originFile": "motion/batch/prepared/bid-search/screen-02.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "1Z2W-1",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 1657
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 2486
+      },
+      "bytes": 336064,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Bid Search",
+      "paperPageId": "I-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "proposal-editor.webp",
+      "originFile": "motion/batch/prepared/ai-proposal/screen-01.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "BHG-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1350
+      },
+      "bytes": 153196,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "AI Proposal",
+      "paperPageId": "3-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "proposal-review.webp",
+      "originFile": "motion/batch/prepared/ai-proposal/screen-02.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "C5Y-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1350
+      },
+      "bytes": 149560,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "AI Proposal",
+      "paperPageId": "3-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "prime-browse.webp",
+      "originFile": "motion/batch/prepared/prime-list/screen-01.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "232T-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 830
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1245
+      },
+      "bytes": 183970,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Prime List",
+      "paperPageId": "K-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "prime-for-you.webp",
+      "originFile": "motion/batch/prepared/prime-list/screen-02.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "23CD-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 991
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1487
+      },
+      "bytes": 171060,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Prime List",
+      "paperPageId": "K-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "prime-detail.webp",
+      "originFile": "motion/batch/prepared/prime-list/screen-03.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "23NJ-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 737
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1106
+      },
+      "bytes": 180082,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Prime List",
+      "paperPageId": "K-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "documents-share.webp",
+      "originFile": "motion/batch/prepared/documents/screen-02.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "28T1-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 948
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1422
+      },
+      "bytes": 173912,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Documents",
+      "paperPageId": "p-M-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "onboarding.webp",
+      "originFile": "motion/batch/prepared/onboarding/screen-02.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "73W-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1350
+      },
+      "bytes": 110054,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Onboarding",
+      "paperPageId": "2-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the prepared Paper export and the area source record’s demonstration-data substitutions."
+    },
+    {
+      "file": "capability.webp",
+      "originFile": "motion/batch/areas/capability/screen-02.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "25P1-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1350
+      },
+      "bytes": 141880,
+      "crop": "full root [data-paper-node]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Capability Statement · Studio v2 (UX)",
+      "paperPageId": "p-L-0",
+      "sourceStatus": "design study",
+      "sanitization": "Source QA marks identity fields as demonstration data and replaces the personal raster preview with a neutral CSS document skeleton; local logo substituted for the remote logo reference.",
+      "assetCorrections": [
+        "remote logo URL replaced with local motion/batch/assets/images/c5d1cb2825fd1b50add5a788.png",
+        "sanitized CSS document preview retained"
+      ]
+    },
+    {
+      "file": "newsfeed.webp",
+      "originFile": "motion/batch/prepared/newsfeed/screen-02.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "2G4H-1",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 1062
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 1593
+      },
+      "bytes": 206656,
+      "crop": "full root [data-paper-node or id]; no crop",
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "News feed · V4 (image-first)",
+      "paperPageId": "p-P-1",
+      "sourceStatus": "design proposal",
+      "sanitization": "Prepared DOM export; text labels retained as demonstration content.",
+      "assetCorrections": [
+        "selected All rule changes screen (2G4H-1), which has no story photography",
+        "logo resolves to local batch image"
+      ]
+    },
+    {
+      "file": "system.webp",
+      "originFile": "motion/batch/areas/visual-system/screen-design-system.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "N6O-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 9068
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 5001
+      },
+      "bytes": 423796,
+      "crop": "native root y=0–3334 CSS px; includes title, color tokens, typography, spacing, buttons and form inputs",
+      "cropRectCss": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3334
+      },
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "assetCorrections": [
+        "Paper logo URL replaced with local batch logo motion/batch/assets/images/c5d1cb2825fd1b50add5a788.png"
+      ],
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "FastGovBid Visual System",
+      "paperPageId": "6-0",
+      "sourceStatus": "design study",
+      "sanitization": "The Visual System Paper artboard is captured from its native DOM; only the Paper logo reference is substituted with a local batch logo.",
+      "cropSections": [
+        "title",
+        "Color Tokens",
+        "Typography",
+        "Spacing",
+        "Buttons",
+        "Form Inputs"
+      ]
+    },
+    {
+      "file": "search-guided-detail.webp",
+      "originFile": "motion/batch/prepared/bid-search/screen-01.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "1XZ7-1",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 1429
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 1740,
+        "height": 1395
+      },
+      "bytes": 132968,
+      "crop": "native builder and first opportunity row; excludes left sidebar and sponsor banner",
+      "cropRectCss": {
+        "x": 280,
+        "y": 300,
+        "width": 1160,
+        "height": 930
+      },
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Bid Search",
+      "paperPageId": "I-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the selected prepared/source Paper export with demonstration interface data; no content edits were made for these crops.",
+      "cropContent": [
+        "guided-search heading and builder",
+        "first opportunity row"
+      ],
+      "excludedContent": [
+        "sidebar",
+        "sponsor banner"
+      ]
+    },
+    {
+      "file": "proposal-editor-detail.webp",
+      "originFile": "motion/batch/prepared/ai-proposal/screen-01.html",
+      "origin": "Paper sanitized DOM export",
+      "nodeId": "BHG-0",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2070,
+        "height": 1350
+      },
+      "bytes": 151762,
+      "crop": "native outline, editor and inspection panel; leaves global rail out of focus",
+      "cropRectCss": {
+        "x": 60,
+        "y": 0,
+        "width": 1380,
+        "height": 900
+      },
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "AI Proposal",
+      "paperPageId": "3-0",
+      "sourceStatus": "design study",
+      "sanitization": "Uses the selected prepared/source Paper export with demonstration interface data; no content edits were made for these crops.",
+      "cropContent": [
+        "section outline",
+        "active draft",
+        "contextual inspection panel"
+      ],
+      "excludedContent": [
+        "far-left global navigation rail"
+      ]
+    },
+    {
+      "file": "search-advanced.webp",
+      "originFile": "site/.asset-work/search-arrival.jsx.txt",
+      "origin": "Paper raw DOM export converted with motion/batch JSX-to-HTML style normalization and established Bid Search demo-identity sanitization",
+      "nodeId": "1ZRG-1",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 1555
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 2160,
+        "height": 2333
+      },
+      "bytes": 297126,
+      "crop": "full root; no crop",
+      "cropRectCss": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1555
+      },
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Bid Search",
+      "paperPageId": "I-0",
+      "sourceStatus": "design study",
+      "assetCorrections": [
+        "Paper logo and Marketplace banner URLs resolved to existing local batch assets; no remote requests loaded.",
+        "Demo identity replacements applied per motion/batch/areas/bid-search/sources.json."
+      ],
+      "editorialNote": "No separate editorial instruction was present in the selected native crop; query terms and matching criteria remain literal from the source.",
+      "provenance": "sidecar JSON created by impeccable embed-prompt"
+    },
+    {
+      "file": "search-advanced-detail.webp",
+      "originFile": "site/.asset-work/search-arrival.jsx.txt",
+      "origin": "Paper raw DOM export converted with motion/batch JSX-to-HTML style normalization and established Bid Search demo-identity sanitization",
+      "nodeId": "1ZRG-1",
+      "cssDimensions": {
+        "width": 1440,
+        "height": 1555
+      },
+      "outputScale": 1.5,
+      "outputDimensions": {
+        "width": 1740,
+        "height": 780
+      },
+      "bytes": 89064,
+      "crop": "native advanced builder and first opportunity row; excludes left sidebar and Marketplace banner",
+      "cropRectCss": {
+        "x": 280,
+        "y": 270,
+        "width": 1160,
+        "height": 520
+      },
+      "limits": [
+        "demonstration data",
+        "not production evidence"
+      ],
+      "remoteImages": [],
+      "renderUrl": "local-only loopback",
+      "fonts": "motion/batch/assets/fonts/fonts.css",
+      "tokens": "motion/batch/tokens.json",
+      "paperFileId": "01KRXK7WBSYYB20Q2FBGZ0X847",
+      "paperPageName": "Bid Search",
+      "paperPageId": "I-0",
+      "sourceStatus": "design study",
+      "assetCorrections": [
+        "Paper logo and Marketplace banner URLs resolved to existing local batch assets; no remote requests loaded.",
+        "Demo identity replacements applied per motion/batch/areas/bid-search/sources.json."
+      ],
+      "editorialNote": "No separate editorial instruction was present in the selected native crop; query terms and matching criteria remain literal from the source.",
+      "provenance": "sidecar JSON created by impeccable embed-prompt"
+    }
+  ]
+}

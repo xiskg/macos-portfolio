@@ -41,6 +41,7 @@ export default function LoginScreen({ onLogin, onPersonaSelected, onSleep }) {
             <div className="loginscreen-role">Creative Developer</div>
           </div>
         </div>
+        <a className="product-portfolio-link" href="/product-design/">Product design portfolio <span aria-hidden="true">→</span></a>
       </div>
       
       <div className="loginscreen-actions">
