@@ -1,0 +1,21 @@
+
+> macos-portfolio@1.0.0 build
+> python3 product-design/build.py && vite build
+
+Built home, FastGovBid case and 404 from approved copy.
+vite v6.4.3 building for production...
+transforming...
+✓ 74 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                      1.91 kB │ gzip:  0.63 kB
+dist/assets/terminal-C5httA1k.png   30.52 kB
+dist/assets/textedit-C45QRPkD.png   31.93 kB
+dist/assets/trash-sRI443nm.png      41.81 kB
+dist/assets/finder-BlVJtDvX.png     42.54 kB
+dist/assets/mail-Dtsp3v9T.png       43.95 kB
+dist/assets/photos-CnC0JmM4.png     58.77 kB
+dist/assets/safari-g8wMtV_Y.png     61.46 kB
+dist/assets/index-CxmNN-QU.css      51.81 kB │ gzip: 10.29 kB
+dist/assets/index-AyWqujJc.js      311.56 kB │ gzip: 99.49 kB
+✓ built in 19.80s
