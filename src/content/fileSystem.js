@@ -107,6 +107,7 @@ export function getTree() {
 
     txt(resumeName, resumeTxt),
     txt('Credits.txt', creditsText),
+    webloc('Product Design.webloc', '/product-design/', true),
     ...(d ? [webloc('GitHub.webloc', profile.github, true)] : []),
     webloc('LinkedIn.webloc', profile.linkedin, true),
     webloc('Contact.webloc', `mailto:${profile.email}`, true),
@@ -121,6 +122,7 @@ export function getDesktopItemNames() {
 
     'Resume.txt',
     'Credits.txt',
+    'Product Design.webloc',
     ...(d ? ['GitHub.webloc'] : []),
     'LinkedIn.webloc',
     'Contact.webloc',

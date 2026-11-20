@@ -22,9 +22,11 @@ export default function Desktop() {
     .map((name) => ({ node: getNode([ROOT, name]), path: [ROOT, name] }))
     .filter((it) => it.node)
 
+  // Continue in a new column before reaching the Dock on shorter screens.
+  const rows = Math.max(1, Math.floor((window.innerHeight - MARGIN_TOP - 76) / (ICON_H + 14)))
   const defaultPos = (i) => ({
-    x: window.innerWidth - ICON_W - MARGIN_X,
-    y: MARGIN_TOP + i * (ICON_H + 14),
+    x: window.innerWidth - ICON_W - MARGIN_X - Math.floor(i / rows) * (ICON_W + 14),
+    y: MARGIN_TOP + (i % rows) * (ICON_H + 14),
   })
 
   const onDesktopContext = useCallback((e) => {
@@ -79,9 +81,13 @@ export default function Desktop() {
 function DesktopIcon({ item, pos, selected, registerRef, onSelect, onOpen, onMove }) {
   const [dragPos, setDragPos] = useState(null)
   const state = useRef(null)
+  const dragged = useRef(false)
+  const isProductDesign = item.node.url === '/product-design/'
+  const Tag = isProductDesign ? 'a' : 'div'
 
   const onPointerDown = (e) => {
     if (e.button !== 0) return
+    dragged.current = false
     onSelect(e.shiftKey || e.metaKey)
     state.current = { sx: e.clientX, sy: e.clientY, moved: false }
     e.currentTarget.setPointerCapture(e.pointerId)
@@ -104,6 +110,7 @@ function DesktopIcon({ item, pos, selected, registerRef, onSelect, onOpen, onMov
   const onPointerUp = () => {
     const s = state.current
     state.current = null
+    dragged.current = !!s?.moved
     if (s?.moved && dragPos) {
       onMove(dragPos)
       setDragPos(null)
@@ -113,21 +120,28 @@ function DesktopIcon({ item, pos, selected, registerRef, onSelect, onOpen, onMov
   const p = dragPos ?? pos
 
   return (
-    <div
+    <Tag
+      {...(isProductDesign ? {
+        href: item.node.url,
+        target: '_blank',
+        rel: 'noopener',
+        'aria-label': 'Product Design (opens in a new tab)',
+        onClick: (e) => { if (dragged.current && e.detail !== 0) e.preventDefault() },
+      } : {})}
       ref={registerRef}
       data-select-item
-      className={`dicon${selected ? ' selected' : ''}`}
+      className={`dicon${isProductDesign ? ' dicon-link' : ''}${selected ? ' selected' : ''}`}
       style={{ left: p.x, top: p.y }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
-      onDoubleClick={onOpen}
+      onDoubleClick={isProductDesign ? undefined : onOpen}
       onContextMenu={(e) => e.preventDefault()}
     >
       <div className="dicon-img">
         <Icon name={iconForNode(item.node)} size={54} />
       </div>
-      <div className="dicon-label">{item.node.name.replace(/\.([^.]+)$/, '\u200B.$1')}</div>
-    </div>
+      <div className="dicon-label">{isProductDesign ? 'Product Design' : item.node.name.replace(/\.([^.]+)$/, '\u200B.$1')}</div>
+    </Tag>
   )
 }
