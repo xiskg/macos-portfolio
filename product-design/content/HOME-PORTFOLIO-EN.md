@@ -4,7 +4,7 @@ I'm João de Almeida, a product designer with a background in brand and visual d
 
 Based in Brazil and open to international remote product design roles.
 
-**View my work** · **View resume**
+**View my work**
 
 ## Selected work
 
@@ -32,4 +32,4 @@ Brand identities, visual systems and an interactive desktop portfolio. My earlie
 
 If you're hiring, I'd be glad to talk about how I could contribute.
 
-**Email me** · **LinkedIn** · **View resume**
+**Email me** · **LinkedIn**

@@ -48,17 +48,16 @@ ARROW = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h
 UPRIGHT = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>'
 ZOOM = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m8 0h4v-4"/></svg>'
 EMAIL = 'joaoadriano.psd@gmail.com'
-CV = '/assets/documents/joao-de-almeida-resume.pdf'
 LINKEDIN = 'https://www.linkedin.com/in/jojoao/'
 ASSETS = {a['file']: a for a in json.loads((ROOT/'asset-manifest.json').read_text())['assets']} if (ROOT/'asset-manifest.json').exists() else {}
 
 def header(case=False):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><a class="wordmark" href="/" aria-label="João de Almeida, home">João de Almeida<span class="wordmark-dot" aria-hidden="true">.</span></a>
-<nav aria-label="Main navigation"><a href="{'/#work' if case else '#work'}">Work</a><a href="{'/#about' if case else '#about'}">About</a><a href="{CV}" target="_blank" rel="noopener">Resume {UPRIGHT}</a><a class="nav-contact" href="mailto:{EMAIL}">Let's talk {UPRIGHT}</a></nav></header>'''
+<nav aria-label="Main navigation"><a href="{'/#work' if case else '#work'}">Work</a><a href="{'/#about' if case else '#about'}">About</a><a class="nav-contact" href="mailto:{EMAIL}">Let's talk {UPRIGHT}</a></nav></header>'''
 
 def footer():
-    return f'''<footer class="contact" id="contact"><div class="contact-inner"><h2>Let's talk about<br>a product design role.</h2><div class="contact-copy"><p>If you're hiring, I'd be glad to talk about how I could contribute.</p><a class="email-link" href="mailto:{EMAIL}">Email me {UPRIGHT}</a><div class="contact-links"><a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn {UPRIGHT}</a><a href="{CV}" target="_blank" rel="noopener">View resume {UPRIGHT}</a></div></div><div class="footer-line"><span>João de Almeida</span><span>Based in Brazil · Working internationally</span><a href="#top">Back to top ↑</a></div></div></footer>'''
+    return f'''<footer class="contact" id="contact"><div class="contact-inner"><h2>Let's talk about<br>a product design role.</h2><div class="contact-copy"><p>If you're hiring, I'd be glad to talk about how I could contribute.</p><a class="email-link" href="mailto:{EMAIL}">Email me {UPRIGHT}</a><div class="contact-links"><a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn {UPRIGHT}</a></div></div><div class="footer-line"><span>João de Almeida</span><span>Based in Brazil · Working internationally</span><a href="#top">Back to top ↑</a></div></div></footer>'''
 
 def shell(title, description, body, path='/'):
     # Keep local links and media inside this mount; leave external links intact.
@@ -89,7 +88,7 @@ proposal = paras(C['A proposal workspace for the unfinished draft'])
 prime = paras(C['Reframing partner discovery'])
 support = paras(C['The systems around the journey'])
 case_intro = next(p for p in blocks(C['intro']) if p.startswith('I designed'))
-index = '<aside class="case-index"><nav aria-label="Case chapters"><span class="index-title">In this case</span><a href="#context">The work</a><a href="#search">Search</a><a href="#authoring">Proposal authoring</a><a href="#partners">Partner discovery</a><a href="#product-system">Around the journey</a><a href="#next">What comes next</a></nav><a class="index-resume" href="'+CV+'" target="_blank" rel="noopener">View resume '+UPRIGHT+'</a></aside>'
+index = '<aside class="case-index"><nav aria-label="Case chapters"><span class="index-title">In this case</span><a href="#context">The work</a><a href="#search">Search</a><a href="#authoring">Proposal authoring</a><a href="#partners">Partner discovery</a><a href="#product-system">Around the journey</a><a href="#next">What comes next</a></nav></aside>'
 
 status_summary = '''<div class="delivery-summary"><h3>What this case demonstrates</h3><dl><div><dt>Proposal workspace</dt><dd>Design delivered; engineering implementation merged in May 2026. Document Preview remained a follow-up.</dd></div><div><dt>Two search modes</dt><dd>Design specification, dated August 4. Shared-query behavior demonstrated below.</dd></div><div><dt>Prime List</dt><dd>Design proposal based on the September 3 brief. Includes source freshness and exception states.</dd></div></dl></div>'''
 
