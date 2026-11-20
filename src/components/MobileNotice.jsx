@@ -10,7 +10,6 @@ export default function MobileNotice() {
         <Icon name="monitor" size={64} />
         <h2>Better on Desktop</h2>
         <p>This macOS simulation portfolio is designed for larger screens and a mouse.</p>
-        <a className="product-portfolio-link" href="/product-design/">View product design work <span aria-hidden="true">→</span></a>
         <div className="mobile-note">
           Please visit on your computer for the full experience.
         </div>

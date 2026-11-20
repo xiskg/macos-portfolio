@@ -68,7 +68,6 @@ export default function WelcomeWidget() {
       <MagneticText text="Hey, I'm João! Welcome to my" isTitle={false} />
       <MagneticText text={word} isTitle={true} />
       <div className="ww-bottom">Explore it like a Mac.</div>
-      <a className="product-portfolio-link" href="/product-design/">Product design portfolio <span aria-hidden="true">→</span></a>
     </div>
   )
 }

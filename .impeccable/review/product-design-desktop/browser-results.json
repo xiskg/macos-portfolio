@@ -1,0 +1,120 @@
+[
+  {
+    "width": 1440,
+    "height": 900,
+    "persona": "designer",
+    "label": "Product Design",
+    "href": "/product-design/",
+    "target": "_blank",
+    "rel": "noopener",
+    "aria": "Product Design (opens in a new tab)",
+    "prompts": 0,
+    "visible": true,
+    "icons": [
+      "Portfolio",
+      "Work Experience",
+      "Resume​.txt",
+      "Credits​.txt",
+      "Product Design",
+      "LinkedIn​.webloc",
+      "Contact​.webloc"
+    ],
+    "overflow": false,
+    "activation": "mouse",
+    "popup": "http://127.0.0.1:8796/product-design/",
+    "openerNull": true,
+    "dragNoPopup": true
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "persona": "dev",
+    "label": "Product Design",
+    "href": "/product-design/",
+    "target": "_blank",
+    "rel": "noopener",
+    "aria": "Product Design (opens in a new tab)",
+    "prompts": 0,
+    "visible": true,
+    "icons": [
+      "Portfolio",
+      "Resume​.txt",
+      "Credits​.txt",
+      "Product Design",
+      "GitHub​.webloc",
+      "LinkedIn​.webloc",
+      "Contact​.webloc"
+    ],
+    "overflow": false,
+    "activation": "Enter",
+    "popup": "http://127.0.0.1:8796/product-design/",
+    "openerNull": true,
+    "dragNoPopup": true
+  },
+  {
+    "width": 800,
+    "height": 600,
+    "persona": "designer",
+    "label": "Product Design",
+    "href": "/product-design/",
+    "target": "_blank",
+    "rel": "noopener",
+    "aria": "Product Design (opens in a new tab)",
+    "prompts": 0,
+    "visible": true,
+    "icons": [
+      "Portfolio",
+      "Work Experience",
+      "Resume​.txt",
+      "Credits​.txt",
+      "Product Design",
+      "LinkedIn​.webloc",
+      "Contact​.webloc"
+    ],
+    "overflow": false,
+    "activation": "mouse",
+    "popup": "http://127.0.0.1:8796/product-design/",
+    "openerNull": true,
+    "dragNoPopup": true
+  },
+  {
+    "width": 800,
+    "height": 600,
+    "persona": "dev",
+    "label": "Product Design",
+    "href": "/product-design/",
+    "target": "_blank",
+    "rel": "noopener",
+    "aria": "Product Design (opens in a new tab)",
+    "prompts": 0,
+    "visible": true,
+    "icons": [
+      "Portfolio",
+      "Resume​.txt",
+      "Credits​.txt",
+      "Product Design",
+      "GitHub​.webloc",
+      "LinkedIn​.webloc",
+      "Contact​.webloc"
+    ],
+    "overflow": false,
+    "activation": "Enter",
+    "popup": "http://127.0.0.1:8796/product-design/",
+    "openerNull": true,
+    "dragNoPopup": true
+  },
+  {
+    "width": 390,
+    "entry": "MobileNotice",
+    "noPrompt": true,
+    "desktopNotMounted": true
+  },
+  {
+    "route": "/product-design/",
+    "resumeControls": 0
+  },
+  {
+    "route": "/product-design/work/fastgovbid/",
+    "resumeControls": 0
+  }
+]
