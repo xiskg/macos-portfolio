@@ -118,4 +118,4 @@ Before that session, I would confirm which screens are available in the current 
 
 If you're hiring for a product design role, I'd be glad to talk about this work and how I could contribute.
 
-**Get in touch** · **View resume**
+**Get in touch**
