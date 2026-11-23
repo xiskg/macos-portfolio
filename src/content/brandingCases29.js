@@ -1,4 +1,3 @@
-const AI_NOTE = 'AI-generated conceptual scene (Paper image generation); the logo and lettering are the real project artwork composited on top, not generated.'
 
 // Anthony Baratta: the content of the "Client presentation v2 — full journey" deck (28 slides),
 // told as a case study. Figures are cut from the deck; each section carries one figure.
@@ -37,12 +36,6 @@ const EXTRAS = [
   fig('corr-green', 'Green quilt stationery: card front, reverse, envelope lining and envelope front', 'Shell Cartouche with Sunny Side; the geometric repeat brings another rhythm. Concept stationery, digital color approximations.'),
   fig('corr-red', 'Red check stationery: card front, reverse, envelope lining and envelope front', 'Collected Stripes shows how the same stationery format can support another symbol. Concept stationery, digital color approximations.'),
   ['/cases/anthony/79A-0.png', { alt: 'Sunny Side paired with five existing Anthony Baratta symbols', caption: 'Existing comparison study. None of these symbols is presented as the final selection.', credit: 'Anthony Baratta / Jewel project study' }],
-  ['/cases/anthony/cards.png', { alt: 'Signal Pennant and Seatren on an embossed card over blue gingham', caption: 'Conceptual stationery mockup. ' + AI_NOTE, credit: 'Jewel project study; AI-generated background' }],
-  ['/cases/anthony/envelope.png', { alt: 'Signal Pennant and Seatren on an envelope with gingham lining', caption: 'Conceptual envelope mockup with a patterned lining and a clear white writing surface. ' + AI_NOTE, credit: 'Jewel project study; AI-generated background' }],
-  ['/cases/anthony/tag.png', { alt: 'Signal Pennant and Seatren on a hang tag beside folded gingham', caption: 'Conceptual hang-tag mockup. ' + AI_NOTE, credit: 'Jewel project study; AI-generated background' }],
-  ['/cases/anthony/bag.png', { alt: 'Signal Pennant and Seatren on a shopping bag with gingham tissue', caption: 'Conceptual shopping-bag mockup. ' + AI_NOTE, credit: 'Jewel project study; AI-generated background' }],
-  ['/cases/anthony/swatchbook.png', { alt: 'Signal Pennant and Seatren label on a linen swatch book beside fabric swatches', caption: 'Conceptual swatch-book mockup. The fabric swatches are AI-generated and illustrative, not Anthony Baratta products. ' + AI_NOTE, credit: 'Jewel project study; AI-generated background' }],
-  ['/cases/anthony/interior.png', { alt: 'Signal Pennant mark in a gilt frame in a blue-and-white interior', caption: 'Conceptual interior mockup of the mark as a framed print. The room is AI-generated and not a project by Anthony Baratta. ' + AI_NOTE, credit: 'Jewel project study; AI-generated background' }],
 ]
 
 const ALL = [...FIGS, ...EXTRAS]
@@ -159,15 +152,14 @@ export const brandingCases29 = [
       "Color Roles",
       "Conceptual Applications"
     ],
-    "credits": "Project context: Jewel Branding & Licensing. João de Almeida: documented vector drawing, spacing and directed refinement. Source archive and reference imagery belong to their respective owners. Font and artwork publication permissions require confirmation.",
     "image": {
       "to": "#dcd5c2",
       "glyph": "shapes",
       "from": "#163b68"
     },
     "gallery": ALL.map(([u]) => u),
-    "hero": "/cases/anthony/cards.png",
-    "thumb": "/cases/anthony/cards.png",
+    "hero": "/cases/anthony/cover.png",
+    "thumb": "/cases/anthony/cover.png",
     "artworks": Object.fromEntries(ALL)
   }
 ]
