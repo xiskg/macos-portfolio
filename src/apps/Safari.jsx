@@ -199,14 +199,20 @@ function ProjectPage({ id, nav }) {
         </div>
         {!isDevProj && <p className="proj-meta">{p.client} · {p.year}</p>}
 
-        {interleaved.map((block) =>
+        {p.contribution && <p>{p.contribution}</p>}
+      {p.status && <p>{p.status}</p>}
+
+      {interleaved.map((block) =>
           block.type === 'section' ? (
             <section key={block.key} className="case-section">
               <h3>{block.data.title}</h3>
               <p className="desc">{block.data.text}</p>
             </section>
           ) : (
-            <img key={block.key} className="case-img" src={block.data} alt={`${p.name} — case artwork`} loading="lazy" />
+            <figure key={block.key} style={{margin: '20px 0'}}>
+              <img className="case-img" style={{background: "#fff"}} src={block.data} alt={p.artworks?.[block.data]?.alt || `${p.name} — case artwork`} loading="lazy" />
+              {p.artworks?.[block.data] && <figcaption style={{fontSize: 12, lineHeight: 1.6, marginTop: 8}}>{p.artworks[block.data].caption} Credit: {p.artworks[block.data].credit}.</figcaption>}
+            </figure>
           )
         )}
 
@@ -219,7 +225,8 @@ function ProjectPage({ id, nav }) {
             <footer>— {p.testimonialAuthor}</footer>
           </blockquote>
         )}
-        <div className="proj-actions">
+        {p.credits && <p style={{fontSize: 12, lineHeight: 1.6}}>{p.credits}</p>}
+      <div className="proj-actions">
           {isDevProj && !p.private && (
             <button className="abtn" onClick={() => window.open(p.url, '_blank')}>
               <Icon name="github" size={16} /> View Source Code

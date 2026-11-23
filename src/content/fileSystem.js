@@ -42,6 +42,9 @@ Stack: ${p.stack.join(', ')}
 
 ${p.tagline}
 
+${p.contribution || ""}
+${p.status || ""}
+
 ${p.sections ? p.sections.map((s) => `${s.title.toUpperCase()}
 ${'-'.repeat(s.title.length)}
 ${s.text}`).join('\n\n') + '\n\n' : ''}${p.private ? 'Note: Repository is strictly private.' : `Source code: ${p.url}`}
@@ -53,6 +56,9 @@ ${p.client} · ${p.year} · ${p.kind}
 
 ${p.tagline}
 
+${p.contribution || ""}
+${p.status || ""}
+
 ${p.sections
   .map((s) => `${s.title.toUpperCase()}
 ${'-'.repeat(s.title.length + 4)}
@@ -63,10 +69,9 @@ DELIVERABLES
 ------------
 ${p.deliverables.map((t) => `  • ${t}`).join('\n')}
 
-CLIENT FEEDBACK
----------------
-${p.testimonial}
-— ${p.testimonialAuthor}
+${p.testimonial ? "CLIENT FEEDBACK\n" + p.testimonial + "\n" + p.testimonialAuthor : ""}
+${p.credits || ""}
+${p.artworks ? Object.values(p.artworks).map(a => a.caption + " Credit: " + a.credit).join("\n") : ""}
 
 Want the full case study walkthrough? Just ask: ${profile.email}
 `

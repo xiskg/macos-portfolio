@@ -165,6 +165,9 @@ function ProjectPage({ id, nav }) {
       </div>
       <p className="ios-proj-meta">{p.client} · {p.year}</p>
 
+      {p.contribution && <p>{p.contribution}</p>}
+      {p.status && <p>{p.status}</p>}
+
       {interleaved.map((block) =>
         block.type === 'section' ? (
           <section key={block.key} className="ios-case-section">
@@ -172,17 +175,21 @@ function ProjectPage({ id, nav }) {
             <p>{block.data.text}</p>
           </section>
         ) : (
-          <img key={block.key} className="ios-case-img" src={block.data} alt={`${p.name} — case artwork`} loading="lazy" />
+          <figure key={block.key} style={{margin: '20px 0'}}>
+              <img className="ios-case-img" style={{background: "#fff"}} src={block.data} alt={p.artworks?.[block.data]?.alt || `${p.name} — case artwork`} loading="lazy" />
+              {p.artworks?.[block.data] && <figcaption style={{fontSize: 12, lineHeight: 1.6, marginTop: 8}}>{p.artworks[block.data].caption} Credit: {p.artworks[block.data].credit}.</figcaption>}
+            </figure>
         )
       )}
 
       <div className="ios-chips">
         {p.deliverables.map((t) => <span key={t} className="ios-chip">{t}</span>)}
       </div>
-      <blockquote className="ios-proj-quote">
+      {p.testimonial && <blockquote className="ios-proj-quote">
         {p.testimonial}
         <footer>— {p.testimonialAuthor}</footer>
-      </blockquote>
+      </blockquote>}
+      {p.credits && <p style={{fontSize: 12, lineHeight: 1.6}}>{p.credits}</p>}
       <div className="ios-proj-actions">
         <button className="ios-abtn" onClick={contactMe}>
           <Icon name="mailGlyph" size={16} /> Let's Work Together

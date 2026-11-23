@@ -1,3 +1,4 @@
+import { brandingCases29 } from './brandingCases29.js'
 // ============================================================================
 //  PORTFOLIO CONTENT — SINGLE SOURCE OF TRUTH
 //  ----------------------------------------------------------------------------
@@ -73,6 +74,7 @@ export const metrics = [
 // an album in Photos and a searchable item in Spotlight.
 // Images are served from the original portfolio's CDN.
 export const projects = [
+  ...brandingCases29,
   {
     id: 'poliana-pionorio',
     name: 'Poliana Pionório',
