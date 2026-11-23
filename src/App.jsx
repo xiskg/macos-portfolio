@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import { DesktopProvider, useDesktop } from './system/DesktopContext.jsx'
 import { WindowManagerProvider, useWindows } from './system/WindowManager.jsx'
-import { setFSPersona } from './content/fileSystem.js'
 import { APP_COMPONENTS } from './apps/index.js'
-import BootScreen from './components/BootScreen.jsx'
-import LoginScreen from './components/LoginScreen.jsx'
 import MenuBar from './components/MenuBar.jsx'
 import Desktop from './components/Desktop.jsx'
 import Dock from './components/Dock.jsx'
@@ -13,84 +10,20 @@ import Spotlight from './components/Spotlight.jsx'
 import Launchpad from './components/Launchpad.jsx'
 import ControlCenter from './components/ControlCenter.jsx'
 import NotificationCenter from './components/NotificationCenter.jsx'
-import Icon from './components/Icon.jsx'
-import MobileNotice from './components/MobileNotice.jsx'
 
 const OVERLAY_CHROME = new Set(['safari']) // apps that draw their own toolbar
 
-function useIsMobile() {
-  const [narrow, setNarrow] = useState(() => window.innerWidth < 760)
-
-  useEffect(() => {
-    const onResize = () => setNarrow(window.innerWidth < 760)
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
-
-  return narrow
-}
-
+// Public visits enter Designer directly, independent of storage and viewport.
 export default function App() {
-  const isMobile = useIsMobile()
-  const [phase, setPhase] = useState('off') // 'boot' | 'login' | 'on' | 'off'
-  const [bootKey, setBootKey] = useState(0)
-  const [fsKey, setFsKey] = useState(0)
-
-  if (isMobile) {
-    return <MobileNotice />
-  }
-
-  const restart = () => {
-    setBootKey((k) => k + 1)
-    setPhase('boot')
-  }
-  const shutdown = () => setPhase('off')
-  const logout = () => {
-    setBootKey((k) => k + 1)
-    setPhase('login')
-  }
+  const [sessionKey, setSessionKey] = useState(0)
+  const resetDesktop = () => setSessionKey((key) => key + 1)
 
   return (
     <DesktopProvider>
-      {phase === 'off' ? (
-        <PowerOffScreen onPowerOn={() => {
-          setBootKey((k) => k + 1)
-          setPhase('boot')
-        }} />
-      ) : (
-        <WindowManagerProvider key={bootKey}>
-          <Shell onRestart={restart} onShutdown={shutdown} onLogout={logout} />
-          {(phase === 'boot' || phase === 'login') && (
-            <LoginScreen onSleep={shutdown} onPersonaSelected={(persona) => {
-               setFSPersona(persona)
-               setFsKey((k) => k + 1)
-            }} onLogin={() => {
-               setPhase('on')
-            }} />
-          )}
-          {phase === 'boot' && <BootScreen onDone={() => setPhase('login')} />}
-        </WindowManagerProvider>
-      )}
+      <WindowManagerProvider key={sessionKey}>
+        <Shell onRestart={resetDesktop} onShutdown={resetDesktop} onLogout={resetDesktop} />
+      </WindowManagerProvider>
     </DesktopProvider>
-  )
-}
-
-function PowerOffScreen({ onPowerOn }) {
-  const { wallpaper } = useDesktop()
-
-  return (
-    <div className="poweroff" style={{ backgroundImage: `url('/wallpapers/custom.jpg')` }}>
-      <div className="poweroff-blur" />
-      <div className="poweroff-content">
-        <h1>João de Almeida</h1>
-        <p>Brand & Visual Design</p>
-        
-        <button onClick={onPowerOn} className="poweroff-btn">
-          <Icon name="apple" size={32} />
-          <span>Click to power on</span>
-        </button>
-      </div>
-    </div>
   )
 }
 
