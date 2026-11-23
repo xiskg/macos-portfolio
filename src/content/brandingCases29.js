@@ -21,12 +21,12 @@ const FIGS = [
   fig('stripes', 'Collected Stripes symbol with reduction and reverse studies', 'Layered stripes become a compact, energetic silhouette. Shown with reduction and reverse.'),
   fig('anchor', 'Carved Movement anchor symbol with reduction and reverse studies', 'An anchor keeps the heritage and changes the character. Shown with reduction and reverse.'),
   fig('lighthouse', 'Lighthouse Volute symbol with reduction and reverse studies', 'A lighthouse becomes a bold silhouette inside a shaped field. Shown with reduction and reverse.'),
-  ['/cases/anthony/name.png', { alt: 'Current signature compared with Seatren and Sunny Side lettering', caption: 'The current signature against the more characterful Seatren and Sunny Side direction. Spacing work preserved from the supplied studies.', credit: 'Anthony Baratta / Jewel project study; supplied signature reference' }],
+  ['/cases/anthony/name.png', { alt: 'Current signature compared with Seatren and Sunny Side lettering', caption: 'The current signature against the more characterful Seatren and Sunny Side direction. I kept my spacing work from the earlier studies.', credit: 'Anthony Baratta / Jewel project study; supplied signature reference' }],
   ['/cases/anthony/797-0.png', { alt: 'Seatren original and contour-reduced lettering comparison', caption: 'Original outlines above, reduced stroke weight below. Adjusted lettering studies, not an official Light font or final lettering.', credit: 'Anthony Baratta / Jewel project study; supplied signature reference' }],
   fig('type-directions', 'Seatren and Sunny Side set at the same wordmark width', 'Two lettering voices compared at the same wordmark width, all caps, with the same arrangement.'),
-  fig('pair-pennant', 'Signal Pennant with Seatren: centered one-line, centered two-line and symbol-beside-name lockups', 'Proposed pairing for review. Centered one-line, centered two-line and symbol-beside-name arrangements.'),
-  fig('pair-shell', 'Shell Cartouche with Sunny Side: centered one-line, centered two-line and symbol-beside-name lockups', 'The decorative alternative: a shell silhouette with softer lettering. Proposed pairing for review.'),
-  fig('pair-lighthouse', 'Lighthouse Volute with Seatren: centered one-line, centered two-line and symbol-beside-name lockups', 'An architectural emblem balanced by straightforward lettering. Proposed pairing for review.'),
+  fig('pair-pennant', 'Signal Pennant with Seatren: centered one-line, centered two-line and symbol-beside-name lockups', 'My recommended pairing. Centered one-line, centered two-line and symbol-beside-name arrangements.'),
+  fig('pair-shell', 'Shell Cartouche with Sunny Side: centered one-line, centered two-line and symbol-beside-name lockups', 'The decorative alternative: a shell silhouette with softer lettering. '),
+  fig('pair-lighthouse', 'Lighthouse Volute with Seatren: centered one-line, centered two-line and symbol-beside-name lockups', 'An architectural emblem balanced by straightforward lettering. '),
   fig('symbols-color', 'Five symbols in signature colors, each with the Seatren name', 'Digital color approximations. Seatren stays constant so symbols and colors can be compared; pairings are examples, not fixed assignments.'),
   fig('color-roles', 'Color roles: blue check, green quilt and red check', 'Navy and Resolute Blue, deep green and eucalyptus, red and Bed of Roses pink, each with white. Digital approximations from the team’s swatches.'),
   fig('corr-blue', 'Blue check stationery: card front, card reverse, envelope lining and envelope front', 'Signal Pennant with Seatren; the check continues on the card reverse and envelope lining. Concept stationery, digital color approximations.'),
@@ -48,24 +48,24 @@ export const brandingCases29 = [
     "year": "2026",
     "kind": "Brand Strategy & Identity",
     "tagline": "Forty-five years of American design, in one mark.",
-    "contribution": "Brand-development exploration in the Jewel project context. João’s documented contribution includes vector drawing, spacing and directed refinement. The studies combine supplied references with assisted development; they are not presented as exclusively hand-drawn work.",
-    "status": "Identity exploration and refinement studies. Signal Pennant with Seatren is the proposed pairing for review; final name, symbol, lettering, production and launch are not established.",
+    "contribution": "I drew the vectors, worked the spacing and directed the refinement of this identity exploration.",
+    "status": "Identity exploration, from the first symbol studies to the stationery.",
     "sections": [
       {
         "title": "The Challenge",
-        "text": "Anthony Baratta’s interiors bring together classic forms, confident color and a layered mix of patterns. The brief was to translate that recognizable point of view into a brand language that could extend beyond interiors into licensing: a logo and identity exploration that carries forty-five years of American design in a single mark, and then keeps working on a card, a tag, a bag or a swatch book."
+        "text": "Anthony Baratta’s interiors bring together classic forms, confident color and a layered mix of patterns. My brief was to translate that recognizable point of view into a brand language that could extend beyond interiors into licensing: a logo and identity exploration that carries forty-five years of American design in a single mark, and then keeps working on a card, a tag, a bag or a swatch book."
       },
       {
-        "title": "What We Heard",
+        "title": "What I Heard",
         "text": "The client’s own phrases set the tone: “East Coast Nautical Chic,” and “Decorate Happy.” Preppy, polished and unmistakably joyful. These phrases guide mood and form; they do not require every mark to depict a boat, an anchor or the sea. From them the brief became five words, each a design test: classic (structure that outlasts a trend), colorful (a system built to hold strong color, not a multicolor icon), joyful (unexpected rhythm and a genuine sense of play), preppy (checks, stripes and tailored order, without stiffness) and smart (a mark that reveals intention and survives reduction)."
       },
       {
         "title": "The Starting Point",
-        "text": "The AB-and-anchor signature has served the studio since 2012. It is compact, legible and well known, with a wink in the anchor tucked into the monogram. It has earned its place, so the studies build on that recognition instead of discarding it, and ask how it can stretch to work on a product, in a showroom and on a label. What to keep: presence, clarity and personality."
+        "text": "The AB-and-anchor signature has served the studio since 2012. It is compact, legible and well known, with a wink in the anchor tucked into the monogram. It has earned its place, so my studies build on that recognition instead of discarding it, and ask how it can stretch to work on a product, in a showroom and on a label. What to keep: presence, clarity and personality."
       },
       {
         "title": "The Work Itself",
-        "text": "Forty-five years of design give the identity its vocabulary. Three rooms were read as evidence: proportion, with big gestures carefully balanced; unexpected combinations, layered with confidence so they never compete; and color that is clean, saturated and rooted in classic pairings. Rather than inventing a style, the system borrows the logic that already runs through the work."
+        "text": "Forty-five years of design give the identity its vocabulary. I read three rooms as evidence: proportion, with big gestures carefully balanced; unexpected combinations, layered with confidence so they never compete; and color that is clean, saturated and rooted in classic pairings. Rather than inventing a style, the system borrows the logic that already runs through the work."
       },
       {
         "title": "Pattern Construction",
@@ -109,7 +109,7 @@ export const brandingCases29 = [
       },
       {
         "title": "The Name Carries the Identity",
-        "text": "The current signature is clean and geometric, and that familiar foundation is a useful starting point. Seatren and Sunny Side add fuller curves and a stronger silhouette while keeping a sans-serif construction, giving the name more character. All caps give the name a consistent height whether it sits on one line or two. The comparisons preserve João’s spacing work and expose the trade-off: reducing density also makes joins, diagonals and optical balance more demanding."
+        "text": "The current signature is clean and geometric, and that familiar foundation is a useful starting point. Seatren and Sunny Side add fuller curves and a stronger silhouette while keeping a sans-serif construction, giving the name more character. All caps give the name a consistent height whether it sits on one line or two. The comparisons keep my spacing work and expose the trade-off: reducing density also makes joins, diagonals and optical balance more demanding."
       },
       {
         "title": "A Lighter Balance",
@@ -117,11 +117,11 @@ export const brandingCases29 = [
       },
       {
         "title": "Two Type Directions",
-        "text": "Seatren and Sunny Side, compared at the same wordmark width. Seatren’s crisp geometry gives the name a firm, tailored presence, and its sharp edges sit beside the folded pennant and an architectural lighthouse. Sunny Side’s rounder contours add warmth to the name; its softer silhouette relates to the shell without adding another layer of ornament. Typography narrowed to these two following the October review."
+        "text": "Seatren and Sunny Side, compared at the same wordmark width. Seatren’s crisp geometry gives the name a firm, tailored presence, and its sharp edges sit beside the folded pennant and an architectural lighthouse. Sunny Side’s rounder contours add warmth to the name; its softer silhouette relates to the shell without adding another layer of ornament. I narrowed the typography to these two after the October review."
       },
       {
         "title": "The Pairing: Signal Pennant with Seatren",
-        "text": "The proposed pairing. A familiar nautical cue, with more movement: the central fold makes the pennant feel like fabric, and its check connects the symbol to the pattern language already present in the work. Seatren gives that movement a steady counterpart, a clear geometric name that does not overpower the symbol. Centered one-line, centered two-line and symbol-beside-name arrangements were drawn so the system works in different formats."
+        "text": "My recommended pairing. A familiar nautical cue, with more movement: the central fold makes the pennant feel like fabric, and its check connects the symbol to the pattern language already present in the work. Seatren gives that movement a steady counterpart, a clear geometric name that does not overpower the symbol. Centered one-line, centered two-line and symbol-beside-name arrangements I drew so the system works in different formats."
       },
       {
         "title": "The Alternative: Shell Cartouche with Sunny Side",
@@ -129,7 +129,7 @@ export const brandingCases29 = [
       },
       {
         "title": "The Alternative: Lighthouse Volute with Seatren",
-        "text": "Architecture within a compact emblem. This version combines the full tower with a wave inside an arched field, giving the motif a clear silhouette. Seatren provides a simple geometric contrast to the curved base: the name stays familiar while the emblem carries the decorative detail. Pairing for review; the symbol and type direction can also be discussed separately."
+        "text": "Architecture within a compact emblem. This version combines the full tower with a wave inside an arched field, giving the motif a clear silhouette. Seatren provides a simple geometric contrast to the curved base: the name stays familiar while the emblem carries the decorative detail. The symbol and type direction can also be discussed separately."
       },
       {
         "title": "Five Symbols in Signature Colors",
@@ -137,7 +137,7 @@ export const brandingCases29 = [
       },
       {
         "title": "Color Roles in the System",
-        "text": "A dark signature, white paper and a pattern with a defined place. Three families give the system its range: a blue check, anchored by navy, with Resolute Blue as a lighter accent; a green quilt, with a deep green that gives the shell its definition and eucalyptus that adds variation within the repeat; and a red check, where Bed of Roses is a gentler companion to the stationery red, which brings the energy. White keeps the writing surface clear, and pattern belongs on the reverse, the lining or the edge. These combinations use the team’s swatches as a starting range, and the paper studies that follow test color placement and pattern scale. Final ink specifications require physical proofs."
+        "text": "A dark signature, white paper and a pattern with a defined place. Three families give the system its range: a blue check, anchored by navy, with Resolute Blue as a lighter accent; a green quilt, with a deep green that gives the shell its definition and eucalyptus that adds variation within the repeat; and a red check, where Bed of Roses is a gentler companion to the stationery red, which brings the energy. White keeps the writing surface clear, and pattern belongs on the reverse, the lining or the edge. I used the supplied swatches as a starting range, and the paper studies that follow test color placement and pattern scale. Final ink specifications require physical proofs."
       },
       {
         "title": "The Application: Correspondence",
