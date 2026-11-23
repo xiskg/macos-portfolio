@@ -1,6 +1,6 @@
 {
   // Cloudflare Workers (Static Assets) — deploy do portfólio estático.
-  // macOS na raiz; portfólio estático em /product-design/.
+  // Designer at / and /branding; engineering at /dev; Product Design unchanged.
   "name": "macos-portfolio",
   "main": "worker/media.js",
   "compatibility_date": "2026-10-26",
@@ -10,7 +10,7 @@
   "assets": {
     "directory": "dist",
     "binding": "ASSETS",
-    "run_worker_first": ["/product-design/assets/video/fastgovbid-walkthrough.mp4"],
+    "run_worker_first": ["/branding", "/branding/", "/product-design/assets/video/fastgovbid-walkthrough.mp4"],
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   }

@@ -9,7 +9,7 @@
     "dev": "python3 product-design/build.py && vite",
     "build": "python3 product-design/build.py && vite build",
     "preview": "vite preview",
-    "test:media": "node --test worker/media.test.js"
+    "test:media": "node --test worker/media.test.js worker/routes.test.js"
   },
   "dependencies": {
     "cuelume": "^0.2.2",
