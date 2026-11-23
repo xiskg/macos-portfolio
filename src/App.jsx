@@ -83,7 +83,7 @@ function PowerOffScreen({ onPowerOn }) {
       <div className="poweroff-blur" />
       <div className="poweroff-content">
         <h1>João de Almeida</h1>
-        <p>Brand Design & Creative Development</p>
+        <p>Brand & Visual Design</p>
         
         <button onClick={onPowerOn} className="poweroff-btn">
           <Icon name="apple" size={32} />

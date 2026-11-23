@@ -7,6 +7,11 @@ const MAX_VIDEO_BYTES = 8 * 1024 * 1024
 export default {
   /** @param {Request} request @param {Env} env */
   async fetch(request, env) {
+    const url = new URL(request.url)
+    if (['/branding', '/branding/'].includes(url.pathname)) {
+      url.pathname = '/'
+      return env.ASSETS.fetch(new Request(url, request))
+    }
     if (new URL(request.url).pathname !== VIDEO || !['GET', 'HEAD'].includes(request.method)) {
       return env.ASSETS.fetch(request)
     }

@@ -33,13 +33,11 @@ export default function LoginScreen({ onLogin, onPersonaSelected, onSleep }) {
             <div className="loginscreen-role">Brand Designer</div>
           </div>
           
-          <div className="loginscreen-user" onClick={() => handleLogin('dev')} data-cuelume-press="press">
-            <div className="loginscreen-avatar">
-              <Icon name="terminal" size={50} />
-            </div>
+          <a className="loginscreen-user" href="/dev/" aria-label="Software engineering portfolio">
+            <div className="loginscreen-avatar"><Icon name="terminal" size={50} /></div>
             <div className="loginscreen-name">João de Almeida</div>
-            <div className="loginscreen-role">Creative Developer</div>
-          </div>
+            <div className="loginscreen-role">Software Engineering</div>
+          </a>
         </div>
       </div>
       

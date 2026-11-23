@@ -23,9 +23,9 @@ import {
 
 export const ROOT = 'Macintosh HD'
 
-let currentPersona = 'designer'
-export const setFSPersona = (p) => { currentPersona = p }
-export const isDev = () => currentPersona === 'dev'
+// The legacy developer persona is retired; engineering lives at /dev/.
+export const setFSPersona = () => {}
+export const isDev = () => false
 
 const txt = (name, content) => ({ name, type: 'txt', content })
 const img = (name, projectId) => ({ name, type: 'img', projectId })
